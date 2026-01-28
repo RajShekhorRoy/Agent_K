@@ -44,28 +44,29 @@ class ToolRunner:
             ensure_dir(state.output_dir)
         return state
 
+    ####main function call
     def tool_run_antismash(self, state: AgentState) -> Dict[str, Any]:
         if not state.genbank_path:
             return {"ok": False, "error": "genbank_path is not set"}
-        ensure_dir(state.output_dir)
+        ensure_dir(state.antismash_dir)
 
         cmd = "bash scripts/run_antismash.sh {gb} {out}".format(
             gb=shlex.quote(state.genbank_path),
-            out=shlex.quote(state.output_dir),
+            out=shlex.quote(state.antismash_dir),
         )
         res = self.run_cmd(cmd)
         if res.get("ok"):
             state.antismash_done = True
         return res
-
+####main function call
     def tool_run_pathway(self, state: AgentState) -> Dict[str, Any]:
-        if not state.genbank_path:
+        if not state.antismash_dir:
             return {"ok": False, "error": "genbank_path is not set"}
-        ensure_dir(state.output_dir)
+        ensure_dir(state.pathway_dir)
 
         cmd = "bash scripts/run_pathway_analysis.sh {gb} {out}".format(
-            gb=shlex.quote(state.genbank_path),
-            out=shlex.quote(state.output_dir),
+            gb=shlex.quote(state.antismash_dir),
+            out=shlex.quote(state.pathway_dir),
         )
         res = self.run_cmd(cmd)
         if res.get("ok"):
