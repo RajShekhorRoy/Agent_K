@@ -1,3 +1,6 @@
 /.venv/
 .venv/
 /outputs/
+agent/__pycache__/*
+.idea/*
+.idea

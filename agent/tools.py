@@ -31,17 +31,24 @@ class ToolRunner:
             return {"ok": False, "error": str(e), "cmd": cmd}
 
     # ---- Domain tools ----
-    def tool_set_paths(
+    def tool_set_paths (
         self,
         state: AgentState,
         genbank_path: Optional[str],
-        output_dir: Optional[str],
+        antismash_dir: Optional[str],
+        pathway_dir: Optional[str],
     ) -> AgentState:
         if genbank_path:
             state.genbank_path = os.path.abspath(genbank_path)
-        if output_dir:
-            state.output_dir = os.path.abspath(output_dir)
-            ensure_dir(state.output_dir)
+        if antismash_dir:
+            state.antismash_dir = os.path.abspath(antismash_dir)
+            ensure_dir(state.antismash_dir)
+            if os.path.exists(os.path.join(state.antismash_dir, "index.html")):
+                print(os.path.join(state.antismash_dir, "index.html"))
+                state.antismash_done = True
+        if pathway_dir:
+            state.pathway_dir = os.path.abspath(pathway_dir)
+            ensure_dir(state.pathway_dir)
         return state
 
     ####main function call
@@ -118,6 +125,7 @@ class ToolRunner:
 
         action = plan.get("action", "just_chat")
         args = plan.get("args", {})
+        print("PLAN JSON:", plan)
 
         tool_logs: List[Dict[str, Any]] = []
 
@@ -125,7 +133,8 @@ class ToolRunner:
             state = self.tool_set_paths(
                 state,
                 genbank_path=args.get("genbank_path"),
-                output_dir=args.get("output_dir"),
+                antismash_dir=args.get("antismash_dir"),
+                pathway_dir=args.get("pathway_dir"),
             )
         elif action == "run_antismash":
             tool_logs.append(self.tool_run_antismash(state))
