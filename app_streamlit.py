@@ -28,9 +28,18 @@ with st.sidebar:
 
 ensure_dir(default_out)
 
-# Initialize state
-if "state" not in st.session_state:
-    st.session_state.state = AgentState(output_dir=default_out)
+# # Initialize state
+# if "state" not in st.session_state:
+#     st.session_state.state = AgentState(output_dir=default_out)
+
+if "state" not in st.session_state or "messages" not in st.session_state:
+    loaded = load_session(default_out)
+    if loaded:
+        st.session_state.state = AgentState(**loaded["state"])
+        st.session_state.messages = loaded["messages"]
+    else:
+        st.session_state.state = AgentState(output_dir=default_out)
+        st.session_state.messages = []
 
 if "messages" not in st.session_state:
     st.session_state.messages = []
@@ -77,5 +86,9 @@ if user_text:
     st.session_state.state = new_state
 
     add_msg("assistant", agent_reply)
+    # Persist after each turn
+    save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages)
+
+
     with st.chat_message("assistant"):
         st.markdown(agent_reply)
