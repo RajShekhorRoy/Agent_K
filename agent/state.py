@@ -1,0 +1,14 @@
+from pydantic import BaseModel, Field
+from typing import Optional, Dict, Any, List
+
+class AgentState(BaseModel):
+    genbank_path: Optional[str] = None
+    output_dir: str
+    antismash_done: bool = False
+    pathway_done: bool = False
+
+    # store discovered artifacts
+    artifacts: Dict[str, Any] = Field(default_factory=dict)
+
+    # lightweight memory (optional)
+    notes: List[str] = Field(default_factory=list)
