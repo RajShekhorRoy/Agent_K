@@ -78,15 +78,17 @@ class ToolRunner:
         return res
 ####main function call
     def tool_run_pathway(self, state: AgentState) -> Dict[str, Any]:
-        if not state.antismash_dir:
-            return {"ok": False, "error": "antismash was not properly ran"}
-        ensure_dir(state.pathway_dir)
 
-        cmd = "bash scripts/run_pathway_analysis.sh {gb} {out}".format(
-            gb=shlex.quote(state.antismash_dir),
-            out=shlex.quote(state.pathway_dir),
+        ensure_dir(state.pathway_dir)
+        _input_dir = state.antismash_dir+"index.html"
+        _output_dir = state.output_dir+str(state.bgc_id)
+
+        cmd = "python /home/rajroy/PycharmProjects/metabolites/all_bgc_AS_map_agentic_version.py {0} {1} {2}".format(
+            i=_input_dir,
+            o=_output_dir,
+            bgc=state.bgc_id,
         )
-        res = self.run_cmd(cmd)
+        res = os.system(cmd)
         if res.get("ok"):
             state.pathway_done = True
         return res
@@ -165,13 +167,17 @@ class ToolRunner:
             )
         elif action == "run_antismash":
             tool_logs.append(self.tool_run_antismash(state))
-        elif action=="set_bgc":
-            state = self.set_bgc(
+        elif action=="set_bgc_id":
+            state = self.set_bgc_id(
                 state,
-                bgc_name=args.get("bgc"))
-            return "{0} is set as priority".format(args.get("bgc")), state,special_condition
+                bgc_id=args.get("bgc_id"))
+            return "{0} is set as priority".format(args.get("bgc_id")), state,special_condition
         elif action == "run_pathway":
-            tool_logs.append(self.tool_run_pathway(state))
+            if state.bgc_id != None and state.antismash_dir != None:
+                tool_logs.append(self.tool_run_pathway(state))
+                return "Analysis Done"
+            else:
+                return "bgc_id or antismash_dir not set", state ,special_condition
         elif action == "list_outputs":
             tool_logs.append(self.tool_list_outputs(state))
         elif action == "read_file":
@@ -180,11 +186,8 @@ class ToolRunner:
             state.antismash_done = True
         elif action == "display_bgc_antismash":
             log_to_file("display_bgc_antismash running")
-            # print(state.antismash_done)
-            # print(state)
             if state.antismash_done == True:
                 try:
-                    log_to_file("inside try")
                     response_data = self.tool_read_antisamsh_bgc(state)
                     res= tool_logs.append(response_data)
                     special_condition = "TABLE"
@@ -192,11 +195,9 @@ class ToolRunner:
                 except:
                     log_to_file("error here")
                     return json.dumps("error", indent=2), state, special_condition
-                    return json.dumps({"ok": False, "error": "antismash_done"}, indent=2), state
             else:
                 log_to_file("error 2 here")
                 return json.dumps("error", indent=2), state ,special_condition
-                tool_logs.append("❌ antiSMASH not marked done. Send action `antismash_done` (or run antiSMASH)")
         elif action == "multi":
             for step in args.get("steps", []):
                 name = step.get("tool")
