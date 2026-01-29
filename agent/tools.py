@@ -55,6 +55,13 @@ class ToolRunner:
             ensure_dir(state.pathway_dir)
         return state
 
+    def set_bgc_id(self,
+                state: AgentState,
+                bgc_id: str)-> AgentState:
+        if bgc_id:
+            state.bgc_id = bgc_id
+        return state
+
     ####main function call
     def tool_run_antismash(self, state: AgentState) -> Dict[str, Any]:
         if not state.genbank_path:
@@ -72,7 +79,7 @@ class ToolRunner:
 ####main function call
     def tool_run_pathway(self, state: AgentState) -> Dict[str, Any]:
         if not state.antismash_dir:
-            return {"ok": False, "error": "genbank_path is not set"}
+            return {"ok": False, "error": "antismash was not properly ran"}
         ensure_dir(state.pathway_dir)
 
         cmd = "bash scripts/run_pathway_analysis.sh {gb} {out}".format(
@@ -158,6 +165,11 @@ class ToolRunner:
             )
         elif action == "run_antismash":
             tool_logs.append(self.tool_run_antismash(state))
+        elif action=="set_bgc":
+            state = self.set_bgc(
+                state,
+                bgc_name=args.get("bgc"))
+            return "{0} is set as priority".format(args.get("bgc")), state,special_condition
         elif action == "run_pathway":
             tool_logs.append(self.tool_run_pathway(state))
         elif action == "list_outputs":

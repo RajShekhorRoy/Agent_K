@@ -10,6 +10,8 @@ class AgentState(BaseModel):
     antismash_done: bool = False
     pathway_done: bool = False
 
+    bgc_id: Optional[str] = None  # use snake_case
+
     # store discovered artifacts
     artifacts: Dict[str, Any] = Field(default_factory=dict)
 
