@@ -1,4 +1,6 @@
 import os
+import json
+import pandas as pd
 import streamlit as st
 
 from agent.state import AgentState
@@ -100,20 +102,36 @@ if user_text:
         "If user asks about outputs, inspect files and summarize.\n"
     )
 
-    agent_reply, new_state = tools.agent_turn(
+    agent_reply, new_state,special_condition = tools.agent_turn(
         llm=llm,
         system_prompt=system,
         user_prompt=user_text,
         state=state,
         chat_history=st.session_state.messages,
-    )
-
+)
     st.session_state.state = new_state
-    add_msg("assistant", agent_reply)
+    if special_condition != None:
+       if special_condition == "TABLE":
+           df = pd.DataFrame(json.loads(agent_reply))
+           add_msg("assistant", agent_reply )
+    else:
+        add_msg("assistant", agent_reply)
+
+
+
+    # add_msg("assistant", agent_reply)
 
     # Persist after each turn (messages + full state including artifacts)
     ensure_dir(st.session_state.state.output_dir)
-    save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages)
+    if special_condition  == "TABLE":
+        st.session_state.messages.pop()
+        st.session_state.messages.append({'role': 'assistant', 'content': 'Table previewed here'})
+        save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages  )
+    else:
+        save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages)
 
     with st.chat_message("assistant"):
-        st.markdown(agent_reply)
+        if special_condition == "TABLE":
+            st.table(df)
+        else:
+            st.markdown(agent_reply)

@@ -2,10 +2,14 @@ import os
 import json
 import shlex
 import subprocess
+import time
 from typing import Dict, Any, List, Tuple, Optional
 
+
+
 from agent.state import AgentState
-from agent.utils import ensure_dir, list_files_recursive, read_text_safely
+from agent.utils import ensure_dir, list_files_recursive, read_text_safely, display_antismash_bgc, log_to_file, \
+    parse_plan_json
 from agent.prompts import build_planner_prompt, build_summarizer_prompt
 
 
@@ -85,6 +89,19 @@ class ToolRunner:
         files = list_files_recursive(state.output_dir)
         return {"ok": True, "output_dir": state.output_dir, "files": files[:500]}
 
+    def tool_read_antisamsh_bgc(self, state):
+
+        input_dir =     str (state.antismash_dir) + "/index.html"
+        output_dir =  str(state.output_dir)+"/"
+        ensure_dir(output_dir)
+
+        if not input_dir:
+            return {"ok": False, "error": "antismash_dir not set in state"}
+
+        json_data, file_path = display_antismash_bgc(input_dir, output_dir)
+
+        return {"ok": True, "json_data": json_data, "file_path": file_path}
+
     def tool_read_file(self, state: AgentState, rel_path: str) -> Dict[str, Any]:
         abs_path = rel_path
         if not os.path.isabs(rel_path):
@@ -104,7 +121,9 @@ class ToolRunner:
         user_prompt: str,
         state: AgentState,
         chat_history: List[Dict[str, str]],
-    ) -> Tuple[str, AgentState]:
+    ) -> Tuple[Any, AgentState,Any]:
+
+        special_condition = None
 
         planner_messages: List[Dict[str, str]] = [
             {"role": "system", "content": system_prompt},
@@ -119,15 +138,16 @@ class ToolRunner:
 
         plan = None
         try:
-            plan = json.loads(plan_text)
+            plan = parse_plan_json(plan_text)
         except Exception:
-            return plan_text, state
+            return plan_text, state, special_condition
 
         action = plan.get("action", "just_chat")
         args = plan.get("args", {})
         print("PLAN JSON:", plan)
 
         tool_logs: List[Dict[str, Any]] = []
+        print(action)
 
         if action == "set_paths":
             state = self.tool_set_paths(
@@ -144,6 +164,27 @@ class ToolRunner:
             tool_logs.append(self.tool_list_outputs(state))
         elif action == "read_file":
             tool_logs.append(self.tool_read_file(state, args.get("path", "")))
+        elif action == "antismash_done":
+            state.antismash_done = True
+        elif action == "display_bgc_antismash":
+            log_to_file("display_bgc_antismash running")
+            # print(state.antismash_done)
+            # print(state)
+            if state.antismash_done == True:
+                try:
+                    log_to_file("inside try")
+                    response_data = self.tool_read_antisamsh_bgc(state)
+                    res= tool_logs.append(response_data)
+                    special_condition = "TABLE"
+                    return   response_data['json_data'], state,special_condition
+                except:
+                    log_to_file("error here")
+                    return json.dumps("error", indent=2), state, special_condition
+                    return json.dumps({"ok": False, "error": "antismash_done"}, indent=2), state
+            else:
+                log_to_file("error 2 here")
+                return json.dumps("error", indent=2), state ,special_condition
+                tool_logs.append("❌ antiSMASH not marked done. Send action `antismash_done` (or run antiSMASH)")
         elif action == "multi":
             for step in args.get("steps", []):
                 name = step.get("tool")
@@ -170,4 +211,4 @@ class ToolRunner:
         summarizer_messages.append({"role": "user", "content": user_prompt})
 
         final = llm.chat(summarizer_messages, temperature=0.2)
-        return final, state
+        return final, state, special_condition
