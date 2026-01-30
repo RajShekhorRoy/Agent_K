@@ -13,6 +13,7 @@ def build_planner_prompt(state: AgentState) -> str:
             "antismash_dir": "optional string",
             "pathway_dir": "optional string",
             "output_dir": "optional string",
+            "bgc_id": "optional string",
             "antismash_done": "optional boolean",
             "pathway_done": "optional boolean",
             "notes": "short explanation"
@@ -20,14 +21,15 @@ def build_planner_prompt(state: AgentState) -> str:
         "notes": "short explanation",
     }
 
-    state_view = {
-            "genbank_path": "optional string",
-            "antismash_dir": "optional string",
-            "pathway_dir": "optional string",
-            "output_dir": "optional string",
-            "antismash_done": "optional boolean",
-            "pathway_done": "optional boolean",
-            "notes": "short explanation"
+    state_view =   state_view = {
+        "genbank_path": state.genbank_path,
+        "output_dir": state.output_dir,
+        "antismash_dir": getattr(state, "antismash_dir", None),
+        "pathway_dir": getattr(state, "pathway_dir", None),
+        "antismash_done": state.antismash_done,
+        "pathway_done": state.pathway_done,
+        "bgc_id": getattr(state, "bgc_id", None),
+        "notes": "short explanation",
         }
     return (
         "You are the planner. Decide the next action.\n"
@@ -64,6 +66,7 @@ def build_summarizer_prompt(state: AgentState, tool_logs: List[Dict[str, Any]]) 
         "output_dir": state.output_dir,
         "antismash_dir": state.antismash_dir,
         "pathway_dir": state.pathway_dir,
+        "bgc_id": state.bgc_id,
     }
     # return (
     #     "You are the final responder.\n"

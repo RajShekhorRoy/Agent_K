@@ -79,17 +79,14 @@ class ToolRunner:
 ####main function call
     def tool_run_pathway(self, state: AgentState) -> Dict[str, Any]:
 
-        ensure_dir(state.pathway_dir)
-        _input_dir = state.antismash_dir+"index.html"
-        _output_dir = state.output_dir+str(state.bgc_id)
 
-        cmd = "python /home/rajroy/PycharmProjects/metabolites/all_bgc_AS_map_agentic_version.py {0} {1} {2}".format(
-            i=_input_dir,
-            o=_output_dir,
-            bgc=state.bgc_id,
-        )
+        _input_dir = state.antismash_dir+"/"
+        _output_dir = state.output_dir+"/"+str(state.bgc_id)+"/"
+        ensure_dir(state.pathway_dir)
+        ensure_dir(_output_dir)
+        cmd = "python /home/rajroy/PycharmProjects/metabolites/all_bgc_AS_map_agentic_version.py {0} {1} {2}".format(_input_dir,_output_dir,str(state.bgc_id.split("_")[0] )       )
         res = os.system(cmd)
-        if res.get("ok"):
+        if res:
             state.pathway_done = True
         return res
 
