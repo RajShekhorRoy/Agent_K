@@ -15,6 +15,19 @@ st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="centered")
 st.title("BGC Agent")
 st.caption("Local, free LLM via Ollama + Qwen2.5. Runs your scripts and chats about outputs.")
 
+CSS = """
+.stChatMessage:has([data-testid="stChatMessageAvatarUser"]) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-itmes: end;
+}
+
+[data-testid="stChatMessageAvatarUser"] + [data-testid="stChatMessageContent"] * {
+    text-align: right;
+}
+"""
+st.html(f"<style>{CSS}</style>")
+
 
 # -------------------------
 # Sidebar: settings first
@@ -87,14 +100,29 @@ tools = ToolRunner()
 # -------------------------
 # Render chat history
 # -------------------------
+# table_str = """
+# Name      Age   City
+# Alice     30    NY
+# Bob       25    LA
+# Charlie   35    SF
+# """
+#
+# st.text(table_str)
+
 for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
-        st.markdown(msg["content"])
+        if  "condition" in msg :
+            if msg["condition"] == "TABLE":
+                st.code(msg["content"])
+            else:
+                st.markdown(msg["content"])
+        else:
+            st.markdown(msg["content"])
 
 user_text = st.chat_input("Type a message...")
 
-def add_msg(role, content):
-    st.session_state.messages.append({"role": role, "content": content})
+def add_msg(role, content,condition=""):
+    st.session_state.messages.append({"role": role, "content": content, "condition": condition})
 
 if user_text:
     add_msg("user", user_text)
@@ -121,8 +149,8 @@ if user_text:
     st.session_state.state = new_state
     if special_condition != None:
        if special_condition == "TABLE":
-           df = pd.DataFrame(json.loads(agent_reply))
-           add_msg("assistant", agent_reply )
+           # df = pd.DataFrame(json.loads(agent_reply))
+           add_msg("assistant", agent_reply ,special_condition)
     else:
         add_msg("assistant", agent_reply)
 
@@ -132,15 +160,12 @@ if user_text:
 
     # Persist after each turn (messages + full state including artifacts)
     ensure_dir(st.session_state.state.output_dir)
-    if special_condition  == "TABLE":
-        st.session_state.messages.pop()
-        st.session_state.messages.append({'role': 'assistant', 'content': 'Table previewed here'})
-        save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages  )
-    else:
-        save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages)
+
+    save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages  )
+
 
     with st.chat_message("assistant"):
         if special_condition == "TABLE":
-            st.table(df)
+            st.code(agent_reply)
         else:
             st.markdown(agent_reply)

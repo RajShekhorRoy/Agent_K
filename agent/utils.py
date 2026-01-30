@@ -104,7 +104,7 @@ def display_antismash_bgc(_input_file, _output_file):
     # df = pd.DataFrame.from_dict(removed_dict, orient="records")
     df.to_json(_output_file + "/mibig_hits_with_similarity.json", index=False)
     json_str = df.to_json(orient="records")
-    return   json_str,_output_file + "/mibig_hits_with_similarity.json"
+    return  df,_output_file + "/mibig_hits_with_similarity.json"
 
 def parse_plan_json(text: str):
     # 1. Remove markdown code fences if present
@@ -129,56 +129,32 @@ def parse_plan_json(text: str):
 
     return json.loads(match.group(0))
 
-def to_chat_multiline(s: str) -> str:
-    # if the string contains literal backslash-n, fix it
-    s = s.replace("\\n", "\n")
 
-    # optional: if it begins/ends with quotes, strip them
-    if len(s) >= 2 and s[0] == '"' and s[-1] == '"':
-        s = s[1:-1]
+import pandas as pd
 
-    # make sure chat renderer preserves newlines and spacing
-    return f"```text\n{s}\n```"
+CELL_WIDTH = 25
 
-def json_to_markdown_table(input_data) -> str:
-    """
-    Accepts:
-      - dict
-      - list[dict]
-      - {"rows": list[dict]}
-      - JSON string of any of the above
 
-    Returns:
-      - Markdown table string
-    """
+def format_cell(value, width=CELL_WIDTH):
+    text = str(value)
+    if len(text) > width:
+        return text[:width]
+    return text.ljust(width)
 
-    # Step 1: Normalize input
-    if isinstance(input_data, str):
-        input_data = json.loads(input_data)
 
-    if isinstance(input_data, dict) and "rows" in input_data:
-        rows = input_data["rows"]
-    elif isinstance(input_data, dict):
-        rows = [input_data]
-    elif isinstance(input_data, list):
-        rows = input_data
-    else:
-        return f"```text \n{input_data}\n```"
+def df_to_fixed_width_table(df: pd.DataFrame, width=CELL_WIDTH) -> str:
+    lines = []
 
-    if not rows:
-        return "_No data available_"
+    # Header
+    header = "".join(format_cell(col, width) for col in df.columns)
+    separator = "-" * (width * len(df.columns))
 
-    # Step 2: Auto-extract column headers
-    columns = list(rows[0].keys())
+    lines.append(header)
+    lines.append(separator)
 
-    # Step 3: Build markdown table
-    header = "| " + " | ".join(columns) + " |"
-    separator = "| " + " | ".join(["---"] * len(columns)) + " |"
+    # Rows
+    for _, row in df.iterrows():
+        line = "".join(format_cell(val, width) for val in row)
+        lines.append(line)
 
-    body = []
-    for row in rows:
-        body.append(
-            "| " + " | ".join(str(row.get(col, "")) for col in columns) + " |"
-        )
-
-    return to_chat_multiline( "\n".join([header, separator] + body))
+    return "\n".join(lines)

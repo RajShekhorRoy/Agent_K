@@ -9,7 +9,7 @@ from typing import Dict, Any, List, Tuple, Optional
 
 from agent.state import AgentState
 from agent.utils import ensure_dir, list_files_recursive, read_text_safely, display_antismash_bgc, log_to_file, \
-    parse_plan_json
+    parse_plan_json, df_to_fixed_width_table
 from agent.prompts import build_planner_prompt, build_summarizer_prompt
 
 
@@ -189,7 +189,7 @@ class ToolRunner:
                     response_data = self.tool_read_antisamsh_bgc(state)
                     res= tool_logs.append(response_data)
                     special_condition = "TABLE"
-                    return   response_data['json_data'], state,special_condition
+                    return  df_to_fixed_width_table (response_data['json_data']), state,special_condition
                 except:
                     log_to_file("error here")
                     return json.dumps("error", indent=2), state, special_condition
