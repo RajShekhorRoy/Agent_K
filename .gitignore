@@ -4,3 +4,4 @@
 agent/__pycache__/*
 .idea/*
 .idea
+/data/testing.py

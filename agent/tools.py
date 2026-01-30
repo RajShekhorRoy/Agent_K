@@ -9,7 +9,7 @@ from typing import Dict, Any, List, Tuple, Optional
 
 from agent.state import AgentState
 from agent.utils import ensure_dir, list_files_recursive, read_text_safely, display_antismash_bgc, log_to_file, \
-    parse_plan_json, df_to_fixed_width_table
+    parse_plan_json, df_to_fixed_width_table, kegg_pathway_frequency
 from agent.prompts import build_planner_prompt, build_summarizer_prompt
 
 
@@ -91,6 +91,20 @@ class ToolRunner:
             return   "Analysis done and saved in here "+ _output_dir
         else:
             return "Failed to run pathway"
+
+    def get_pathway(self, state: AgentState) ->Any:
+        details_dir = state.output_dir + "/" + str(state.bgc_id) + "/details/"+str(state.bgc_id)+"/details.csv"
+        # product_file = state.output_dir + "/" + str(state.bgc_id) + "/details/product_mapped.txt"
+        pathway_values = kegg_pathway_frequency(details_dir)
+
+        return {"ok": True, "pathway_values": pathway_values}
+
+    def get_pathway_details(self, state: AgentState) ->Any:
+        details_dir = state.output_dir + "/" + str(state.bgc_id) + "/details/details.csv"
+        product_file = state.output_dir + "/" + str(state.bgc_id) + "/details/product_mapped.txt"
+
+        bgc_details="output of map"
+        return {"ok": True, "bgc_details": bgc_details}
     def tool_list_outputs(self, state: AgentState) -> Dict[str, Any]:
         ensure_dir(state.output_dir)
         files = list_files_recursive(state.output_dir)
@@ -196,6 +210,11 @@ class ToolRunner:
             else:
                 log_to_file("error 2 here")
                 return json.dumps("error", indent=2), state ,special_condition
+        elif action == "get_pathway":
+            pathway_freq = self.get_pathway(state)['pathway_values']
+            special_condition= "TABLE"
+            return pathway_freq, state, special_condition
+
         elif action == "multi":
             for step in args.get("steps", []):
                 name = step.get("tool")

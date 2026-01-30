@@ -7,7 +7,7 @@ def build_planner_prompt(state: AgentState) -> str:
     The LLM must output JSON ONLY.
     """
     schema = {
-        "action": "one of: set_paths | run_antismash | run_pathway | list_outputs | read_file | multi | just_chat | set_bgc_id | display_bgc_antismash",
+        "action": "one of: set_paths | run_antismash | run_pathway | list_outputs | read_file | multi | just_chat | set_bgc_id | display_bgc_antismash | get_pathway |",
         "args": {
             "genbank_path": "optional string",
             "antismash_dir": "optional string",
@@ -16,6 +16,7 @@ def build_planner_prompt(state: AgentState) -> str:
             "bgc_id": "optional string",
             "antismash_done": "optional boolean",
             "pathway_done": "optional boolean",
+            "pathway": "optional string",
             "notes": "short explanation"
         },
         "notes": "short explanation",
@@ -42,6 +43,9 @@ def build_planner_prompt(state: AgentState) -> str:
         "- If the user mentions a specific bgc_id, BGC, gene cluster, region number, or cluster index  (e.g. BGC 2, region001, the NRPS cluster),choose the action set_bgc_id."
         "- If the user mentions a BGCor bgc_id ,choose the action set_bgc_id."
         "- Set BGC when bgc, bgc_id is mentioned, choose the action set_bgc_id"
+        "- If the user mentions what are the pathway, choose the action get_pathway."
+        "- If the user mentions or asks about possible pathway or pathway, choose the action get_pathway."
+        "- If pathway_done is true, get_pathway should run without questions."
         "- If user provides/mentions genbank path or antismash dir or pathway dir or analysis dir, choose set_paths.\n"
         "- If the user explicitly states that antiSMASH has finished running (e.g., antismash is done, antismash completed, I already ran antismash),call the action `antismash_done`\n"
         "- If user asks to run antiSMASH, choose run_antismash.\n"

@@ -158,3 +158,86 @@ def df_to_fixed_width_table(df: pd.DataFrame, width=CELL_WIDTH) -> str:
         lines.append(line)
 
     return "\n".join(lines)
+
+
+
+def kegg_pathway_frequency(input_file, col="KEGG_Pathway"):
+    """
+    Compute frequency of unique KEGG pathways.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Input dataframe
+    col : str
+        Column containing KEGG pathway IDs (comma-separated)
+
+    Returns
+    -------
+    pandas.DataFrame
+        DataFrame with columns: KEGG_Pathway, frequency
+    """
+    df = pd.read_csv(input_file)
+    freq_df = (
+        df[col]
+        .dropna()
+        .astype(str)
+        .str.split(",")
+        .explode()
+        .str.strip()
+        .value_counts()
+        .reset_index()
+    )
+
+    freq_df.columns = ["KEGG_Pathway", "frequency"]
+
+    freq_df.sort_values(
+        by="frequency",
+        ascending=False
+    ).reset_index(drop=True)
+
+
+    return df_to_fixed_width_table(freq_df)
+
+
+def get_products_by_pathway(df, pathway_id, pathway_col="KEGG_Pathway", product_col="product_name"):
+    """
+    Return product names for rows containing a given KEGG pathway ID.
+
+    Parameters
+    ----------
+    df : pandas.DataFrame
+        Input dataframe
+    pathway_id : str
+        KEGG pathway ID (e.g. "01053")
+    pathway_col : str
+        Column containing KEGG pathway IDs
+    product_col : str
+        Column containing product names
+
+    Returns
+    -------
+    list
+        Unique product names associated with the pathway
+    """
+    mask = (
+        df[pathway_col]
+        .dropna()
+        .astype(str)
+        .str.split(",")
+        .apply(lambda x: pathway_id in [p.strip() for p in x])
+    )
+
+    products = (
+        df.loc[mask, product_col]
+        .dropna()
+        .astype(str)
+        .unique()
+        .tolist()
+    )
+    final_array = []
+    for product in products:
+        for inner in product.split(", "):
+            final_array.append(str(inner))
+
+    return final_array
