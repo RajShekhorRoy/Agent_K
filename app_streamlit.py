@@ -2,7 +2,8 @@ import os
 import json
 import pandas as pd
 import streamlit as st
-
+import streamlit.components.v1 as components
+st.set_page_config(layout="wide")
 from agent.state import AgentState
 from agent.tools import ToolRunner
 from agent.llm_ollama import OllamaChatLLM
@@ -74,6 +75,14 @@ with st.sidebar:
 # -------------------------
 llm = OllamaChatLLM(base_url=ollama_url, model=model)
 tools = ToolRunner()
+# components.iframe("https://www.kegg.jp/kegg-bin/show_pathway?map01053/R07644/C00022/C00020/C00013/C05821/C00885/R01717/R03037/C04171//image1x", width=1000,height=1000)
+# st.html("https://www.kegg.jp/kegg-bin/show_pathway?map01053/R07644/C00022/C00020/C00013/C05821/C00885/R01717/R03037/C04171//image1x")
+
+# components.iframe(
+#     src="https://www.kegg.jp/kegg-bin/show_pathway?map01053/R07644/C00022/C00020/C00013/C05821/C00885/R01717/R03037/C04171//image1x",
+#     height=800,          # adjust or compute dynamically
+#     scrolling=True
+# )
 
 # -------------------------
 # Render chat history

@@ -77,7 +77,7 @@ class ToolRunner:
             state.antismash_done = True
         return res
 ####main function call
-    def tool_run_pathway(self, state: AgentState) -> Dict[str, Any]:
+    def tool_run_pathway(self, state: AgentState) ->  Any:
 
 
         _input_dir = state.antismash_dir+"/"
@@ -86,10 +86,11 @@ class ToolRunner:
         ensure_dir(_output_dir)
         cmd = "python /home/rajroy/PycharmProjects/metabolites/all_bgc_AS_map_agentic_version.py {0} {1} {2}".format(_input_dir,_output_dir,str(state.bgc_id.split("_")[0] )       )
         res = os.system(cmd)
-        if res:
+        if res==0:
             state.pathway_done = True
-        return res
-
+            return   "Analysis done and saved in here "+ _output_dir
+        else:
+            return "Failed to run pathway"
     def tool_list_outputs(self, state: AgentState) -> Dict[str, Any]:
         ensure_dir(state.output_dir)
         files = list_files_recursive(state.output_dir)
@@ -172,7 +173,7 @@ class ToolRunner:
         elif action == "run_pathway":
             if state.bgc_id != None and state.antismash_dir != None:
                 tool_logs.append(self.tool_run_pathway(state))
-                return "Analysis Done"
+                return "Analysis Done" , state,special_condition
             else:
                 return "bgc_id or antismash_dir not set", state ,special_condition
         elif action == "list_outputs":
