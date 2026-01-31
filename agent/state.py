@@ -11,6 +11,7 @@ class AgentState(BaseModel):
     pathway_done: bool = False
 
     bgc_id: Optional[str] = None  # use snake_case
+    pathway_id: Optional[str] = None
 
     # store discovered artifacts
     artifacts: Dict[str, Any] = Field(default_factory=dict)

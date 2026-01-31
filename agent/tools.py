@@ -9,7 +9,7 @@ from typing import Dict, Any, List, Tuple, Optional
 
 from agent.state import AgentState
 from agent.utils import ensure_dir, list_files_recursive, read_text_safely, display_antismash_bgc, log_to_file, \
-    parse_plan_json, df_to_fixed_width_table, kegg_pathway_frequency
+    parse_plan_json, df_to_fixed_width_table, kegg_pathway_frequency, get_products_by_pathway, get_kegg_links_by_pathway
 from agent.prompts import build_planner_prompt, build_summarizer_prompt
 
 
@@ -99,12 +99,17 @@ class ToolRunner:
 
         return {"ok": True, "pathway_values": pathway_values}
 
-    def get_pathway_details(self, state: AgentState) ->Any:
-        details_dir = state.output_dir + "/" + str(state.bgc_id) + "/details/details.csv"
-        product_file = state.output_dir + "/" + str(state.bgc_id) + "/details/product_mapped.txt"
+    def show_pathway_details(self, state: AgentState,pathway_id) ->Any:
+        details_dir = state.output_dir + "/" + str(state.bgc_id) + "/details/" + str(state.bgc_id) + "/details.csv"
+        map_file = state.output_dir + "/" + str(state.bgc_id) + "/details/"+ str(state.bgc_id) +"/product_mapped.txt"
+        possible_products = get_products_by_pathway(details_dir, pathway_id)
+        product_str = "Possible products are :"
+        for values in possible_products['products']:
+            product_str += str(values)+", "
 
-        bgc_details="output of map"
-        return {"ok": True, "bgc_details": bgc_details}
+        mapped_link = get_kegg_links_by_pathway(map_file, pathway_id)['link']
+        return {"ok": True, "Details": {"product": product_str, "pathway": mapped_link}}
+
     def tool_list_outputs(self, state: AgentState) -> Dict[str, Any]:
         ensure_dir(state.output_dir)
         files = list_files_recursive(state.output_dir)
@@ -194,6 +199,11 @@ class ToolRunner:
             tool_logs.append(self.tool_list_outputs(state))
         elif action == "read_file":
             tool_logs.append(self.tool_read_file(state, args.get("path", "")))
+        elif action == "show_pathway_details":
+            pathway_details = self.show_pathway_details(state,args.get("pathway_id"))
+            special_condition = "DETAILS"
+
+            return  pathway_details, state,special_condition
         elif action == "antismash_done":
             state.antismash_done = True
         elif action == "display_bgc_antismash":
@@ -210,11 +220,11 @@ class ToolRunner:
             else:
                 log_to_file("error 2 here")
                 return json.dumps("error", indent=2), state ,special_condition
+
         elif action == "get_pathway":
             pathway_freq = self.get_pathway(state)['pathway_values']
             special_condition= "TABLE"
             return pathway_freq, state, special_condition
-
         elif action == "multi":
             for step in args.get("steps", []):
                 name = step.get("tool")

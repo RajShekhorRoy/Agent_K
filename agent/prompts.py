@@ -7,7 +7,7 @@ def build_planner_prompt(state: AgentState) -> str:
     The LLM must output JSON ONLY.
     """
     schema = {
-        "action": "one of: set_paths | run_antismash | run_pathway | list_outputs | read_file | multi | just_chat | set_bgc_id | display_bgc_antismash | get_pathway |",
+        "action": "one of: set_paths | run_antismash | run_pathway | list_outputs | read_file | multi | just_chat | set_bgc_id | display_bgc_antismash | get_pathway | show_pathway_details |",
         "args": {
             "genbank_path": "optional string",
             "antismash_dir": "optional string",
@@ -16,7 +16,7 @@ def build_planner_prompt(state: AgentState) -> str:
             "bgc_id": "optional string",
             "antismash_done": "optional boolean",
             "pathway_done": "optional boolean",
-            "pathway": "optional string",
+            "pathway_id": "optional string",
             "notes": "short explanation"
         },
         "notes": "short explanation",
@@ -29,6 +29,7 @@ def build_planner_prompt(state: AgentState) -> str:
         "pathway_dir": getattr(state, "pathway_dir", None),
         "antismash_done": state.antismash_done,
         "pathway_done": state.pathway_done,
+        "pathway_id":  getattr(state, "pathway", None),
         "bgc_id": getattr(state, "bgc_id", None),
         "notes": "short explanation",
         }
@@ -44,6 +45,9 @@ def build_planner_prompt(state: AgentState) -> str:
         "- If the user mentions a BGCor bgc_id ,choose the action set_bgc_id."
         "- Set BGC when bgc, bgc_id is mentioned, choose the action set_bgc_id"
         "- If the user mentions what are the pathway, choose the action get_pathway."
+        "- pathway_id or pathway or pathway id or map or map_id are all the same thing"
+        # "- If the user mentions what about the pathway details, choose the action show_pathway_details."
+        "- If the user mentions about the product or details of pathway or details of product, choose the action show_pathway_details."
         "- If the user mentions or asks about possible pathway or pathway, choose the action get_pathway."
         "- If pathway_done is true, get_pathway should run without questions."
         "- If user provides/mentions genbank path or antismash dir or pathway dir or analysis dir, choose set_paths.\n"
@@ -70,6 +74,7 @@ def build_summarizer_prompt(state: AgentState, tool_logs: List[Dict[str, Any]]) 
         "output_dir": state.output_dir,
         "antismash_dir": state.antismash_dir,
         "pathway_dir": state.pathway_dir,
+        "pathway": getattr(state, "pathway", None),
         "bgc_id": state.bgc_id,
     }
     # return (

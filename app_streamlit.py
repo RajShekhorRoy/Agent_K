@@ -3,7 +3,7 @@ import json
 import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
-st.set_page_config(layout="wide")
+
 from agent.state import AgentState
 from agent.tools import ToolRunner
 from agent.llm_ollama import OllamaChatLLM
@@ -110,12 +110,18 @@ tools = ToolRunner()
 # st.text(table_str)
 
 for msg in st.session_state.messages:
+    st.set_page_config(layout="wide")
     with st.chat_message(msg["role"]):
         if  "condition" in msg :
             if msg["condition"] == "TABLE":
                 st.code(msg["content"])
+            elif msg["condition"] == "DETAILS":
+                st.markdown(msg["content"]['Details']['product'])
+                components.iframe(msg["content"]['Details']['pathway'], width="100%", height=1000)
             else:
                 st.markdown(msg["content"])
+
+
         else:
             st.markdown(msg["content"])
 
@@ -125,6 +131,8 @@ def add_msg(role, content,condition=""):
     st.session_state.messages.append({"role": role, "content": content, "condition": condition})
 
 if user_text:
+    st.set_page_config(layout="wide")
+
     add_msg("user", user_text)
     with st.chat_message("user"):
         st.markdown(user_text)
@@ -147,10 +155,14 @@ if user_text:
         chat_history=st.session_state.messages,
 )
     st.session_state.state = new_state
+
     if special_condition != None:
        if special_condition == "TABLE":
            # df = pd.DataFrame(json.loads(agent_reply))
            add_msg("assistant", agent_reply ,special_condition)
+       elif special_condition == "DETAILS" :
+           add_msg("assistant", agent_reply ,special_condition)
+
     else:
         add_msg("assistant", agent_reply)
 
@@ -167,5 +179,8 @@ if user_text:
     with st.chat_message("assistant"):
         if special_condition == "TABLE":
             st.code(agent_reply)
+        elif special_condition == "DETAILS" :
+            st.markdown(agent_reply['Details']['product'])
+            components.iframe(agent_reply['Details']['pathway'], width=1000,height=1000)
         else:
             st.markdown(agent_reply)

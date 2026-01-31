@@ -200,7 +200,7 @@ def kegg_pathway_frequency(input_file, col="KEGG_Pathway"):
     return df_to_fixed_width_table(freq_df)
 
 
-def get_products_by_pathway(df, pathway_id, pathway_col="KEGG_Pathway", product_col="product_name"):
+def get_products_by_pathway(input_file, pathway_id, pathway_col="KEGG_Pathway", product_col="product_name"):
     """
     Return product names for rows containing a given KEGG pathway ID.
 
@@ -220,6 +220,7 @@ def get_products_by_pathway(df, pathway_id, pathway_col="KEGG_Pathway", product_
     list
         Unique product names associated with the pathway
     """
+    df=pd.read_csv(input_file)
     mask = (
         df[pathway_col]
         .dropna()
@@ -240,4 +241,18 @@ def get_products_by_pathway(df, pathway_id, pathway_col="KEGG_Pathway", product_
         for inner in product.split(", "):
             final_array.append(str(inner))
 
-    return final_array
+    return {'products': final_array}
+
+def get_kegg_links_by_pathway(filepath, pathway_id=""):
+    links = set()
+
+    with open(filepath, "r") as f:
+        for line in f:
+            if f"map{pathway_id}" in line:
+                try:
+                    link = line.split(" : ", 1)[1].strip()
+                    links.add(link)
+                except IndexError:
+                    continue
+
+    return {"link":list(links)[0]}
