@@ -140,7 +140,10 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         if  "condition" in msg :
             if msg["condition"] == "TABLE":
-                st.code(msg["content"])
+                if len(msg["content"].splitlines()) <3 :
+                    st.code("No data found")
+                else:
+                    st.code(msg["content"])
             elif msg["condition"] == "DETAILS":
                 st.markdown(msg["content"].splitlines()[0])
                 components.iframe(msg["content"].splitlines()[1], width="100%", height=1000,scrolling=True)
@@ -205,7 +208,10 @@ if user_text:
 
     with st.chat_message("assistant"):
         if special_condition == "TABLE":
-            st.code(agent_reply)
+            if len(msg["content"].splitlines()) < 3:
+                st.code("No data found")
+            else:
+                st.code(msg["content"])
         elif special_condition == "DETAILS" :
             st.markdown(agent_reply['Details']['product'])
             components.iframe(agent_reply['Details']['pathway'], width="100%",height=1000,scrolling=True)
