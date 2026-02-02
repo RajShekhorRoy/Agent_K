@@ -7,7 +7,7 @@ import streamlit.components.v1 as components
 from agent.state import AgentState
 from agent.tools import ToolRunner
 from agent.llm_ollama import OllamaChatLLM
-from agent.utils import ensure_dir
+from agent.utils import ensure_dir, handle_details_view
 from agent.persistence import save_session, load_session
 
 st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="centered")
@@ -142,8 +142,8 @@ for msg in st.session_state.messages:
             if msg["condition"] == "TABLE":
                 st.code(msg["content"])
             elif msg["condition"] == "DETAILS":
-                st.markdown(msg["content"]['Details']['product'])
-                components.iframe(msg["content"]['Details']['pathway'], width="100%", height=1000)
+                st.markdown(msg["content"].splitlines()[0])
+                components.iframe(msg["content"].splitlines()[1], width="100%", height=1000)
             else:
                 st.markdown(msg["content"])
 
@@ -187,7 +187,8 @@ if user_text:
            # df = pd.DataFrame(json.loads(agent_reply))
            add_msg("assistant", agent_reply ,special_condition)
        elif special_condition == "DETAILS" :
-           add_msg("assistant", agent_reply ,special_condition)
+           str_message = handle_details_view(agent_reply.get("Details"))
+           add_msg("assistant", str_message ,special_condition)
 
     else:
         add_msg("assistant", agent_reply)
@@ -207,6 +208,6 @@ if user_text:
             st.code(agent_reply)
         elif special_condition == "DETAILS" :
             st.markdown(agent_reply['Details']['product'])
-            components.iframe(agent_reply['Details']['pathway'], width=1000,height=1000)
+            components.iframe(agent_reply['Details']['pathway'], width="100%",height=1000)
         else:
             st.markdown(agent_reply)

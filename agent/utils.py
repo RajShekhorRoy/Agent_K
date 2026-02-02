@@ -256,3 +256,14 @@ def get_kegg_links_by_pathway(filepath, pathway_id=""):
                     continue
 
     return {"link":list(links)[0]}
+
+def handle_details_view (_details)->str:
+    products = _details["product"]
+    pathway = _details["pathway"]
+
+    content = f"""Possible products : {products} 
+    {pathway}
+    """
+
+    return  content
+
