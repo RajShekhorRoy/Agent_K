@@ -199,49 +199,39 @@ def kegg_pathway_frequency(input_file, col="KEGG_Pathway"):
 
     return df_to_fixed_width_table(freq_df)
 
+import pandas as pd
 
-def get_products_by_pathway(input_file, pathway_id, pathway_col="KEGG_Pathway", product_col="product_name"):
-    """
-    Return product names for rows containing a given KEGG pathway ID.
+def get_products_by_pathway(input_file, pathway_id,
+                            pathway_col="KEGG_Pathway",
+                            product_col="product_name"):
+    df = pd.read_csv(input_file)
 
-    Parameters
-    ----------
-    df : pandas.DataFrame
-        Input dataframe
-    pathway_id : str
-        KEGG pathway ID (e.g. "01053")
-    pathway_col : str
-        Column containing KEGG pathway IDs
-    product_col : str
-        Column containing product names
+    # ✅ keep same length/index as df
+    s = df[pathway_col].fillna("").astype(str)
 
-    Returns
-    -------
-    list
-        Unique product names associated with the pathway
-    """
-    df=pd.read_csv(input_file)
     mask = (
-        df[pathway_col]
-        .dropna()
-        .astype(str)
-        .str.split(",")
-        .apply(lambda x: pathway_id in [p.strip() for p in x])
+        s.str.split(",")
+         .apply(lambda xs: pathway_id in [p.strip() for p in xs])
     )
 
     products = (
         df.loc[mask, product_col]
-        .dropna()
-        .astype(str)
-        .unique()
-        .tolist()
+          .fillna("")
+          .astype(str)
+          .tolist()
     )
+
     final_array = []
     for product in products:
-        for inner in product.split(", "):
-            final_array.append(str(inner))
+        for inner in product.split(","):   # ✅ split on comma, not ", "
+            inner = inner.strip()
+            if inner:
+                final_array.append(inner)
 
-    return {'products': final_array}
+    # unique, keep order
+    final_array = list(dict.fromkeys(final_array))
+    return {"products": final_array}
+
 
 def get_kegg_links_by_pathway(filepath, pathway_id=""):
     links = set()
@@ -267,3 +257,4 @@ def handle_details_view (_details)->str:
 
     return  content
 
+# get_products_by_pathway("/home/rajroy/PycharmProjects/Agent_K/outputs/BGC0001184/details/BGC0001184/details.csv","00270")

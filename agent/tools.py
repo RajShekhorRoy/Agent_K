@@ -63,6 +63,7 @@ class ToolRunner:
         return state
 
     ####main function call
+    ##currently unavailable
     def tool_run_antismash(self, state: AgentState) -> Dict[str, Any]:
         if not state.genbank_path:
             return {"ok": False, "error": "genbank_path is not set"}
@@ -184,6 +185,7 @@ class ToolRunner:
             )
         elif action == "run_antismash":
             tool_logs.append(self.tool_run_antismash(state))
+            return "Feature not available yet", state, special_condition
         elif action=="set_bgc_id":
             state = self.set_bgc_id(
                 state,
@@ -191,19 +193,26 @@ class ToolRunner:
             return "{0} is set as priority".format(args.get("bgc_id")), state,special_condition
         elif action == "run_pathway":
             if state.bgc_id != None and state.antismash_dir != None:
+                state = self.set_bgc_id(state, bgc_id=args.get("bgc_id"))
                 tool_logs.append(self.tool_run_pathway(state))
-                return "Analysis Done" , state,special_condition
+
+                pathway_freq, special_condition = self.get_pathways(state)
+
+                return pathway_freq , state,special_condition
             else:
                 return "bgc_id or antismash_dir not set", state ,special_condition
-        elif action == "list_outputs":
-            tool_logs.append(self.tool_list_outputs(state))
-        elif action == "read_file":
-            tool_logs.append(self.tool_read_file(state, args.get("path", "")))
+        # elif action == "list_outputs":
+        #     tool_logs.append(self.tool_list_outputs(state))
+        # elif action == "read_file":
+        #     tool_logs.append(self.tool_read_file(state, args.get("path", "")))
         elif action == "show_pathway_details":
-            pathway_details = self.show_pathway_details(state,args.get("pathway_id"))
-            special_condition = "DETAILS"
-
-            return  pathway_details, state,special_condition
+            if args.get("pathway_id") != None:
+                pathway_details = self.show_pathway_details(state,args.get("pathway_id"))
+                special_condition = "DETAILS"
+                return  pathway_details, state,special_condition
+            else:
+                special_condition = None
+                return "Choose the pathway please", state, special_condition
         elif action == "antismash_done":
             state.antismash_done = True
         elif action == "display_bgc_antismash":
@@ -224,28 +233,22 @@ class ToolRunner:
         elif action == "get_pathway":
             state = self.set_bgc_id( state, bgc_id=args.get("bgc_id"))
 
-            map_file = state.output_dir + "/" + str(state.bgc_id) + "/details/" + str(
-                state.bgc_id) + "/product_mapped.txt"
-            if not os.path.exists(map_file):
-                tool_logs.append(self.tool_run_pathway(state))
-
-            pathway_freq = self.get_pathway(state)['pathway_values']
-            special_condition= "TABLE"
+            pathway_freq, special_condition = self.get_pathways(state)
             return pathway_freq, state, special_condition
-        elif action == "multi":
-            for step in args.get("steps", []):
-                name = step.get("tool")
-                a = step.get("args", {})
-                if name == "set_paths":
-                    state = self.tool_set_paths(state, a.get("genbank_path"), a.get("output_dir"))
-                elif name == "run_antismash":
-                    tool_logs.append(self.tool_run_antismash(state))
-                elif name == "run_pathway":
-                    tool_logs.append(self.tool_run_pathway(state))
-                elif name == "list_outputs":
-                    tool_logs.append(self.tool_list_outputs(state))
-                elif name == "read_file":
-                    tool_logs.append(self.tool_read_file(state, a.get("path", "")))
+        # elif action == "multi":
+        #     for step in args.get("steps", []):
+        #         name = step.get("tool")
+        #         a = step.get("args", {})
+        #         if name == "set_paths":
+        #             state = self.tool_set_paths(state, a.get("genbank_path"), a.get("output_dir"))
+        #         elif name == "run_antismash":
+        #             tool_logs.append(self.tool_run_antismash(state))
+        #         elif name == "run_pathway":
+        #             tool_logs.append(self.tool_run_pathway(state))
+        #         elif name == "list_outputs":
+        #             tool_logs.append(self.tool_list_outputs(state))
+        #         elif name == "read_file":
+        #             tool_logs.append(self.tool_read_file(state, a.get("path", "")))
         else:
             pass
 
@@ -259,3 +262,13 @@ class ToolRunner:
 
         final = llm.chat(summarizer_messages, temperature=0.2)
         return final, state, special_condition
+
+    def get_pathways(self, state: AgentState) -> tuple[Any, str]:
+        map_file = state.output_dir + "/" + str(state.bgc_id) + "/details/" + str(
+            state.bgc_id) + "/product_mapped.txt"
+        if not os.path.exists(map_file):
+            self.tool_run_pathway(state)
+
+        pathway_freq = self.get_pathway(state)['pathway_values']
+        special_condition = "TABLE"
+        return pathway_freq, special_condition
