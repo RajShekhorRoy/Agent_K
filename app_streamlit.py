@@ -12,8 +12,8 @@ from agent.persistence import save_session, load_session
 
 st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="centered")
 
-st.title("BGC Agent")
-st.caption("Local, free LLM via Ollama + Qwen2.5. Runs your scripts and chats about outputs.")
+# st.title("BGC Agent")
+# st.caption("Local, free LLM via Ollama + Qwen2.5. Runs your scripts and chats about outputs.")
 
 CSS = """
 .stChatMessage:has([data-testid="stChatMessageAvatarUser"]) {
@@ -27,6 +27,32 @@ CSS = """
 }
 """
 st.html(f"<style>{CSS}</style>")
+
+# sticky header
+st.markdown(
+    """
+<style>
+    div[data-testid="stVerticalBlock"] div:has(div.fixed-header) {
+        position: sticky;
+        top: 2.875rem;
+        color: #02665D;
+        background-color: white;
+        z-index: 999;
+        overflow: hidden;
+        max-width: 100vw;
+        box-sizing: border-box;
+    }
+    .fixed-header {
+        border-bottom: 1px solid black;
+    }
+</style>
+    """,
+    unsafe_allow_html=True
+)
+header = st.container()
+header.title("Agent K")
+header.write("""<div class='fixed-header'/>""", unsafe_allow_html=True)
+
 
 
 # -------------------------
