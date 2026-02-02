@@ -59,7 +59,7 @@ class ToolRunner:
                 state: AgentState,
                 bgc_id: str)-> AgentState:
         if bgc_id:
-            state.bgc_id = bgc_id
+            state.bgc_id = bgc_id.split(".")[0]
         return state
 
     ####main function call
@@ -222,6 +222,13 @@ class ToolRunner:
                 return json.dumps("error", indent=2), state ,special_condition
 
         elif action == "get_pathway":
+            state = self.set_bgc_id( state, bgc_id=args.get("bgc_id"))
+
+            map_file = state.output_dir + "/" + str(state.bgc_id) + "/details/" + str(
+                state.bgc_id) + "/product_mapped.txt"
+            if not os.path.exists(map_file):
+                tool_logs.append(self.tool_run_pathway(state))
+
             pathway_freq = self.get_pathway(state)['pathway_values']
             special_condition= "TABLE"
             return pathway_freq, state, special_condition

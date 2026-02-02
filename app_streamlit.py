@@ -143,7 +143,7 @@ for msg in st.session_state.messages:
                 st.code(msg["content"])
             elif msg["condition"] == "DETAILS":
                 st.markdown(msg["content"].splitlines()[0])
-                components.iframe(msg["content"].splitlines()[1], width="100%", height=1000)
+                components.iframe(msg["content"].splitlines()[1], width="100%", height=1000,scrolling=True)
             else:
                 st.markdown(msg["content"])
 
@@ -208,6 +208,6 @@ if user_text:
             st.code(agent_reply)
         elif special_condition == "DETAILS" :
             st.markdown(agent_reply['Details']['product'])
-            components.iframe(agent_reply['Details']['pathway'], width="100%",height=1000)
+            components.iframe(agent_reply['Details']['pathway'], width="100%",height=1000,scrolling=True)
         else:
             st.markdown(agent_reply)
