@@ -17,12 +17,13 @@ def build_planner_prompt(state: AgentState) -> str:
             "antismash_done": "optional boolean",
             "pathway_done": "optional boolean",
             "pathway_id": "optional string",
+            "similarity": "optional number in [0,1]",
             "notes": "short explanation"
         },
         "notes": "short explanation",
     }
 
-    state_view =   state_view = {
+    state_view = {
         "genbank_path": state.genbank_path,
         "output_dir": state.output_dir,
         "antismash_dir": getattr(state, "antismash_dir", None),
@@ -31,8 +32,29 @@ def build_planner_prompt(state: AgentState) -> str:
         "pathway_done": state.pathway_done,
         "pathway_id":  getattr(state, "pathway", None),
         "bgc_id": getattr(state, "bgc_id", None),
+        "similarity":getattr(state, "similarity", None),
         "notes": "short explanation",
         }
+
+    few_shots = (
+        "Examples (follow the pattern exactly):\n"
+        "User: show me the bgc for /DATA/A/Actinomyces with 0.40 similarity\n"
+        "Assistant:\n"
+        '{"action":"display_bgc_antismash","args":{"antismash_dir":"/DATA/A/Actinomyces","similarity":0.40},"notes":"Show BGCs with similarity >= 0.40"}\n\n'
+
+        "User: list BGCs in /DATA/A/Actinomyces with similarity 0.4\n"
+        "Assistant:\n"
+        '{"action":"display_bgc_antismash","args":{"antismash_dir":"/DATA/A/Actinomyces","similarity":0.40},"notes":"show BGCs with similarity >= 0.40 "}\n\n'
+ 
+        "User: show bgcs in /DATA/A/Actinomyces\n"
+        "Assistant:\n"
+        '{"action":"display_bgc_antismash","args":{"antismash_dir":"/DATA/A/Actinomyces","similarity":null},"notes":"No similarity filter requested"}\n\n'
+
+        "User: set bgc_id to BGC0000888.5\n"
+        "Assistant:\n"
+        '{"action":"set_bgc_id","args":{"bgc_id":"BGC0000888.5"},"notes":"Set the current BGC id"}\n\n'
+    )
+
     return (
         "You are the planner. Decide the next action.\n"
         "Return STRICT JSON ONLY. No markdown.\n\n"
@@ -63,6 +85,8 @@ def build_planner_prompt(state: AgentState) -> str:
         "- If antismash_done is true, display_bgc_antismash should run without questions."
         "- If user asks about a specific result file, choose read_file with a relative path.\n"
         "- If multiple are needed, use action=multi with args.steps.\n\n"
+        + few_shots
+        +
         f"JSON schema:\n{json.dumps(schema, indent=2)}\n"
     )
 
@@ -75,6 +99,7 @@ def build_summarizer_prompt(state: AgentState, tool_logs: List[Dict[str, Any]]) 
         "antismash_dir": state.antismash_dir,
         "pathway_dir": state.pathway_dir,
         "pathway": getattr(state, "pathway", None),
+        "similarity": getattr(state, "similarity", None),
         "bgc_id": state.bgc_id,
     }
     # return (

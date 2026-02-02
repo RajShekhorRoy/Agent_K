@@ -13,6 +13,8 @@ class AgentState(BaseModel):
     bgc_id: Optional[str] = None  # use snake_case
     pathway_id: Optional[str] = None
 
+    similarity: Optional[float] = 0  # use snake_case
+
     # store discovered artifacts
     artifacts: Dict[str, Any] = Field(default_factory=dict)
 

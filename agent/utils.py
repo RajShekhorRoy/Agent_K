@@ -57,7 +57,7 @@ def remove_duplicates_on_key(dict_list):
     return result
 
 
-def display_antismash_bgc(_input_file, _output_file):
+def display_antismash_bgc(_input_file, _output_file,_similarity=0):
     if not _input_file:
         return {"ok": False, "error": "antismash_dir not set in state"}
 
@@ -91,12 +91,13 @@ def display_antismash_bgc(_input_file, _output_file):
                                 continue
 
                         if accession:
-                            mibig_hits.append({
-                                "Contig": contig,
-                                "Region": region_name,
-                                "BGC_ID": accession,
-                                "Similarity": similarity
-                            })
+                            if similarity >_similarity:
+                                mibig_hits.append({
+                                    "Contig": contig,
+                                    "Region": region_name,
+                                    "BGC_ID": accession,
+                                    "Similarity": similarity
+                                })
 
     # df = pd.DataFrame(mibig_hits)
     removed_dict = remove_duplicates_on_key(mibig_hits)

@@ -125,7 +125,7 @@ class ToolRunner:
         if not input_dir:
             return {"ok": False, "error": "antismash_dir not set in state"}
 
-        json_data, file_path = display_antismash_bgc(input_dir, output_dir)
+        json_data, file_path = display_antismash_bgc(input_dir, output_dir,state.similarity)
 
         return {"ok": True, "json_data": json_data, "file_path": file_path}
 
@@ -219,6 +219,17 @@ class ToolRunner:
             log_to_file("display_bgc_antismash running")
             if state.antismash_done == True:
                 try:
+                    if args.get("similarity")!= None:
+                        similarity = float(args.get("similarity"))
+                        if similarity >1:
+                            similarity = similarity/100.0
+                            state.similarity = similarity
+                        else:
+                            state.similarity = similarity
+
+                    else:
+                        state.similarity = 0
+
                     response_data = self.tool_read_antisamsh_bgc(state)
                     res= tool_logs.append(response_data)
                     special_condition = "TABLE"
