@@ -121,6 +121,7 @@ def build_summarizer_prompt(state: AgentState, tool_logs: List[Dict[str, Any]]) 
         "IMPORTANT RULES:\n"
         "- If the user asked to display/list/show antiSMASH BGCs and antismash_done is true, DO NOT ask for genbank_path.\n"
         "- For display_bgc_antismash results: show the saved file_path and preview the first ~100 items/rows.\n"
+        "- If a path is set then mention which path has been set and to which state. \n"
         "- If tool logs show an error, explain the error and the exact next step.\n\n"
     
         f"State:\n{json.dumps(state_view, indent=2)}\n\n"

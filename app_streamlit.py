@@ -62,10 +62,11 @@ with st.sidebar:
     st.header("Settings")
     model = st.text_input("Ollama model", value="qwen2.5:7b-instruct")
     ollama_url = st.text_input("Ollama URL", value="http://127.0.0.1:11434")
-    default_out = st.text_input("Default output dir", value=os.path.abspath("./outputs"))
+    # default_out = st.text_input("Default output dir", value=os.path.abspath("./outputs"))
+    default_out = st.text_input("Default session file", value=os.path.abspath("./output"))
 
 # Make sure default_out exists (so load/save has somewhere to go)
-ensure_dir(default_out)
+# ensure_dir(default_out)
 
 # -------------------------
 # Session init (MUST happen before any use of st.session_state.state/messages)
@@ -91,9 +92,9 @@ if "messages" not in st.session_state:
 # If user changes default_out in sidebar, optionally “switch” the output dir
 # (This keeps things consistent without forcing a full reset.)
 # Comment this out if you don't want sidebar changes to alter active state.
-if st.session_state.state.output_dir != os.path.abspath(default_out):
-    st.session_state.state.output_dir = os.path.abspath(default_out)
-    ensure_dir(st.session_state.state.output_dir)
+# if st.session_state.state.output_dir != os.path.abspath(default_out):
+#     st.session_state.state.output_dir = os.path.abspath(default_out)
+#     ensure_dir(st.session_state.state.output_dir)
 
 # -------------------------
 # Sidebar: live state view (NOW safe)
@@ -140,10 +141,7 @@ for msg in st.session_state.messages:
     with st.chat_message(msg["role"]):
         if  "condition" in msg :
             if msg["condition"] == "TABLE":
-                if len(msg["content"].splitlines()) <3 :
-                    st.code("No data found")
-                else:
-                    st.code(msg["content"])
+                st.code(msg["content"])
             elif msg["condition"] == "DETAILS":
                 st.markdown(msg["content"].splitlines()[0])
                 components.iframe(msg["content"].splitlines()[1], width="100%", height=1000,scrolling=True)
@@ -203,15 +201,12 @@ if user_text:
     # Persist after each turn (messages + full state including artifacts)
     ensure_dir(st.session_state.state.output_dir)
 
-    save_session(st.session_state.state.output_dir, st.session_state.state, st.session_state.messages  )
+    save_session("./output/", st.session_state.state, st.session_state.messages  )
 
 
     with st.chat_message("assistant"):
         if special_condition == "TABLE":
-            if len(msg["content"].splitlines()) < 3:
-                st.code("No data found")
-            else:
-                st.code(msg["content"])
+            st.code(msg["content"])
         elif special_condition == "DETAILS" :
             st.markdown(agent_reply['Details']['product'])
             components.iframe(agent_reply['Details']['pathway'], width="100%",height=1000,scrolling=True)

@@ -1,3 +1,4 @@
+import csv
 import os
 import json
 import shlex
@@ -41,6 +42,7 @@ class ToolRunner:
         genbank_path: Optional[str],
         antismash_dir: Optional[str],
         pathway_dir: Optional[str],
+        output_dir: Optional[str],
     ) -> AgentState:
         if genbank_path:
             state.genbank_path = os.path.abspath(genbank_path)
@@ -53,6 +55,9 @@ class ToolRunner:
         if pathway_dir:
             state.pathway_dir = os.path.abspath(pathway_dir)
             ensure_dir(state.pathway_dir)
+        if output_dir:
+            state.output_dir = os.path.abspath(output_dir)
+            ensure_dir(state.output_dir)
         return state
 
     def set_bgc_id(self,
@@ -77,13 +82,14 @@ class ToolRunner:
         if res.get("ok"):
             state.antismash_done = True
         return res
+
 ####main function call
     def tool_run_pathway(self, state: AgentState) ->  Any:
 
 
         _input_dir = state.antismash_dir+"/"
         _output_dir = state.output_dir+"/"+str(state.bgc_id)+"/"
-        ensure_dir(state.pathway_dir)
+        # ensure_dir(state.pathway_dir)
         ensure_dir(_output_dir)
         cmd = "python /home/rajroy/PycharmProjects/metabolites/all_bgc_AS_map_agentic_version.py {0} {1} {2}".format(_input_dir,_output_dir,str(state.bgc_id.split("_")[0] )       )
         res = os.system(cmd)
@@ -93,10 +99,33 @@ class ToolRunner:
         else:
             return "Failed to run pathway"
 
+    def joint_similarity_output(self, _mibig,_frequency):
+
+
+        return
+
     def get_pathway(self, state: AgentState) ->Any:
+
         details_dir = state.output_dir + "/" + str(state.bgc_id) + "/details/"+str(state.bgc_id)+"/details.csv"
+        mibig_similarity = state.output_dir + "/" + str(state.bgc_id) + "/mibig_hits_with_similarity.csv"
+
         # product_file = state.output_dir + "/" + str(state.bgc_id) + "/details/product_mapped.txt"
+        if not os.path.exists(details_dir):
+            return {"ok": False, "error": "details_dir not found{0}".format(details_dir)}
+
+        if not os.path.exists(mibig_similarity):
+            return {"ok": False, "error": "Antismash details not found not found{0}".format(mibig_similarity)}
+
+
+        mibig_similarity_values = csv.reader(mibig_similarity)
+
         pathway_values = kegg_pathway_frequency(details_dir)
+        #normalized values
+
+        #insert similarity
+
+        #score
+
 
         return {"ok": True, "pathway_values": pathway_values}
 
@@ -182,6 +211,7 @@ class ToolRunner:
                 genbank_path=args.get("genbank_path"),
                 antismash_dir=args.get("antismash_dir"),
                 pathway_dir=args.get("pathway_dir"),
+                output_dir=args.get("output_dir"),
             )
         elif action == "run_antismash":
             tool_logs.append(self.tool_run_antismash(state))
@@ -192,8 +222,10 @@ class ToolRunner:
                 bgc_id=args.get("bgc_id"))
             return "{0} is set as priority".format(args.get("bgc_id")), state,special_condition
         elif action == "run_pathway":
-            if state.bgc_id != None and state.antismash_dir != None:
+            if args.get("bgc_id") != None:
                 state = self.set_bgc_id(state, bgc_id=args.get("bgc_id"))
+            if state.bgc_id != None and state.antismash_dir != None:
+
                 tool_logs.append(self.tool_run_pathway(state))
 
                 pathway_freq, special_condition = self.get_pathways(state)
@@ -217,29 +249,21 @@ class ToolRunner:
             state.antismash_done = True
         elif action == "display_bgc_antismash":
             log_to_file("display_bgc_antismash running")
-            if state.antismash_done == True:
-                try:
-                    if args.get("similarity")!= None:
-                        similarity = float(args.get("similarity"))
-                        if similarity >1:
-                            similarity = similarity/100.0
-                            state.similarity = similarity
-                        else:
-                            state.similarity = similarity
 
-                    else:
-                        state.similarity = 0
+            try:
+                state =self.get_similarity(args, state)
 
-                    response_data = self.tool_read_antisamsh_bgc(state)
-                    res= tool_logs.append(response_data)
-                    special_condition = "TABLE"
-                    return  df_to_fixed_width_table (response_data['json_data']), state,special_condition
-                except:
-                    log_to_file("error here")
-                    return json.dumps("error", indent=2), state, special_condition
-            else:
-                log_to_file("error 2 here")
-                return json.dumps("error", indent=2), state ,special_condition
+                if args.get("antismash_dir") != None:
+                    state.antismash_dir = args.get("antismash_dir")
+                    state.antismash_done = True
+
+                response_data = self.tool_read_antisamsh_bgc(state)
+                res= tool_logs.append(response_data)
+                special_condition = "TABLE"
+                return  df_to_fixed_width_table (response_data['json_data']), state,special_condition
+            except:
+                log_to_file("error here")
+                return json.dumps("error", indent=2), state, special_condition
 
         elif action == "get_pathway":
             state = self.set_bgc_id( state, bgc_id=args.get("bgc_id"))
@@ -273,6 +297,19 @@ class ToolRunner:
 
         final = llm.chat(summarizer_messages, temperature=0.2)
         return final, state, special_condition
+
+    def get_similarity(self, args, state: AgentState):
+        if args.get("similarity") != None:
+            similarity = float(args.get("similarity"))
+            if similarity > 1:
+                similarity = similarity / 100.0
+                state.similarity = similarity
+            else:
+                state.similarity = similarity
+
+        else:
+            state.similarity = 0
+        return state
 
     def get_pathways(self, state: AgentState) -> tuple[Any, str]:
         map_file = state.output_dir + "/" + str(state.bgc_id) + "/details/" + str(
