@@ -1,9 +1,9 @@
-import csv
+
 import os
 import json
 import shlex
 import subprocess
-import time
+
 from typing import Dict, Any, List, Tuple, Optional
 
 
@@ -107,17 +107,17 @@ class ToolRunner:
     def get_pathway(self, state: AgentState) ->Any:
 
         details_dir = state.output_dir + "/" + str(state.bgc_id) + "/details/"+str(state.bgc_id)+"/details.csv"
-        mibig_similarity = state.output_dir + "/" + str(state.bgc_id) + "/mibig_hits_with_similarity.csv"
+        # mibig_similarity = state.output_dir + "/" + str(state.bgc_id) + "/mibig_hits_with_similarity.csv"
 
         # product_file = state.output_dir + "/" + str(state.bgc_id) + "/details/product_mapped.txt"
         if not os.path.exists(details_dir):
             return {"ok": False, "error": "details_dir not found{0}".format(details_dir)}
 
-        if not os.path.exists(mibig_similarity):
-            return {"ok": False, "error": "Antismash details not found not found{0}".format(mibig_similarity)}
+        # if not os.path.exists(mibig_similarity):
+        #     return {"ok": False, "error": "Antismash details not found not found{0}".format(mibig_similarity)}
 
-
-        mibig_similarity_values = csv.reader(mibig_similarity)
+        #
+        # mibig_similarity_values = pd.read_csv(mibig_similarity, dtype=str)
 
         pathway_values = kegg_pathway_frequency(details_dir)
         #normalized values

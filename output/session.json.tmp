@@ -257,6 +257,12 @@
       "role": "assistant",
       "content": "KEGG_Pathway             frequency                \n--------------------------------------------------\n01053                    4                        \n00130                    1                        ",
       "condition": "TABLE"
-    }
-  ]
-}
+    },
+    {
+      "role": "user",
+      "content": "run pathway analysis for BGC0000343.5",
+      "condition": ""
+    },
+    {
+      "role": "assistant",
+      "content": 
