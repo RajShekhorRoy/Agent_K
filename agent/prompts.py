@@ -7,7 +7,7 @@ def build_planner_prompt(state: AgentState) -> str:
     The LLM must output JSON ONLY.
     """
     schema = {
-        "action": "one of: set_paths | run_antismash | run_pathway | list_outputs | read_file | multi | just_chat | set_bgc_id | display_bgc_antismash | get_pathway | show_pathway_details |",
+        "action": "one of: set_paths | run_antismash | run_pathway | list_outputs | read_file | multi | just_chat | set_bgc_id | display_bgc_antismash | get_pathway | show_pathway_details | reset_session |",
         "args": {
             "genbank_path": "optional string",
             "antismash_dir": "optional string",
@@ -18,7 +18,8 @@ def build_planner_prompt(state: AgentState) -> str:
             "pathway_done": "optional boolean",
             "pathway_id": "optional string",
             "similarity": "optional number in [0,1]",
-            "notes": "short explanation"
+            "notes": "short explanation",
+            "keep_paths": "optional boolean"
         },
         "notes": "short explanation",
     }
@@ -53,6 +54,19 @@ def build_planner_prompt(state: AgentState) -> str:
         "User: set bgc_id to BGC0000888.5\n"
         "Assistant:\n"
         '{"action":"set_bgc_id","args":{"bgc_id":"BGC0000888.5"},"notes":"Set the current BGC id"}\n\n'
+
+        "User: run bgc analysis for the antismash dir /DATA/A/Actinomyces \n"
+        "Assistant:\n"
+        '{"action":"display_bgc_antismash","args":{"antismash_dir":"/DATA/A/Actinomyces"},"notes":"No similarity filter requested"}\n\n'
+
+        "User: show me pathway related to for bgc BGC0000888.5 \n"
+        "Assistant:\n"
+        '{"action":"run_pathway","args":{"bgc_id":"BGC0000888.5"},"notes":"Run and show the possible pathways"}\n\n'
+
+        "User: show me the details of the pathway 01020 \n"
+        "Assistant:\n"
+        '{"action":"show_pathway_details","args":{"pathway_id":"01020"},"notes":"Run and show pathway details"}\n\n'
+
     )
 
     return (
@@ -84,7 +98,12 @@ def build_planner_prompt(state: AgentState) -> str:
         "- display_bgc_antismash must execute immediately using antismash_dir and must NOT ask the user for genbank_path."
         "- If antismash_done is true, display_bgc_antismash should run without questions."
         "- If user asks about a specific result file, choose read_file with a relative path.\n"
-        "- If multiple are needed, use action=multi with args.steps.\n\n"
+        " - If the user explicitly says reset or reset session or start over, choose reset_session."
+        " - If user says reset then just reset_session"
+        " - For reset_session args.keep_paths:"
+        " - true if user says reset but keep paths, or just says reset (default true)"
+        " - false if user says hard reset, reset everything, forget paths"
+        " - If multiple are needed, use action=multi with args.steps.\n\n"
         + few_shots
         +
         f"JSON schema:\n{json.dumps(schema, indent=2)}\n"

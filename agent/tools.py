@@ -99,10 +99,26 @@ class ToolRunner:
         else:
             return "Failed to run pathway"
 
-    def joint_similarity_output(self, _mibig,_frequency):
+    def tool_reset_state(self, state: AgentState, keep_paths: bool = True) -> AgentState:
+        # preserve what you want
+        preserved = {}
+        if keep_paths:
+            preserved = {
+                "output_dir": getattr(state, "genbank_path", None),
+                "genbank_path": getattr(state, "genbank_path", None),
+                "antismash_dir": getattr(state, "antismash_dir", None),
+                "pathway_dir": getattr(state, "pathway_dir", None),
+            }
 
+        # create a fresh AgentState
+        new_state = AgentState()
 
-        return
+        if keep_paths:
+            for k, v in preserved.items():
+                if v:
+                    setattr(new_state, k, v)
+
+        return new_state
 
     def get_pathway(self, state: AgentState) ->Any:
 
@@ -270,6 +286,10 @@ class ToolRunner:
 
             pathway_freq, special_condition = self.get_pathways(state)
             return pathway_freq, state, special_condition
+        elif action == "reset_session":
+            keep_paths = bool(args.get("keep_paths", True))
+            state = self.tool_reset_state(state, keep_paths=keep_paths)
+            tool_logs.append({"ok": True, "action": "reset_session", "keep_paths": keep_paths})
         # elif action == "multi":
         #     for step in args.get("steps", []):
         #         name = step.get("tool")

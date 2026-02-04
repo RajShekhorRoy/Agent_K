@@ -3,10 +3,10 @@
     "genbank_path": null,
     "output_dir": "/home/rajroy/last_test",
     "pathway_dir": null,
-    "antismash_dir": "/home/rajroy/antismash_test_121625/consensus_cov",
-    "antismash_done": true,
-    "pathway_done": true,
-    "bgc_id": "BGC0000343",
+    "antismash_dir": null,
+    "antismash_done": false,
+    "pathway_done": false,
+    "bgc_id": null,
     "pathway_id": null,
     "similarity": 0.0,
     "artifacts": {},
@@ -257,6 +257,51 @@
       "role": "assistant",
       "content": "KEGG_Pathway             frequency                \n--------------------------------------------------\n01053                    4                        \n00130                    1                        ",
       "condition": "TABLE"
+    },
+    {
+      "role": "user",
+      "content": "reset",
+      "condition": ""
+    },
+    {
+      "role": "assistant",
+      "content": "Session reset. The following paths have been kept:\n\n- `genbank_path`: Not set.\n- `antismash_dir`: `/home/rajroy/antismash_test_121625/consensus_cov`.\n- `pathway_dir`: Not set.\n- `output_dir`: `/home/rajroy/last_test`.\n\nNext steps:\n1. Set the `genbank_path` if you want to run antiSMASH.\n2. Run antiSMASH using the command: `antismash --taxon prokaryote --output-dir /home/rajroy/last_test <genbank_path>`.\n\nIf you need immediate pathway analysis, ensure antiSMASH is done first.",
+      "condition": ""
+    },
+    {
+      "role": "user",
+      "content": "reset all",
+      "condition": ""
+    },
+    {
+      "role": "assistant",
+      "content": "Session reset. All paths have been cleared:\n\n- `genbank_path`: Not set.\n- `antismash_dir`: Not set.\n- `pathway_dir`: Not set.\n- `output_dir`: `/home/rajroy/last_test`.\n\nNext steps:\n1. Set the `genbank_path` if you want to run antiSMASH.\n2. Run antiSMASH using the command: `antismash --taxon prokaryote --output-dir /home/rajroy/last_test <genbank_path>`.\n\nIf you need immediate pathway analysis, ensure antiSMASH is done first.",
+      "condition": ""
+    },
+    {
+      "role": "user",
+      "content": "reset",
+      "condition": ""
+    },
+    {
+      "role": "user",
+      "content": "reset",
+      "condition": ""
+    },
+    {
+      "role": "assistant",
+      "content": "Session reset. Paths have been kept:\n\n- `genbank_path`: Not set.\n- `antismash_dir`: `/home/rajroy/antismash_test_121625/consensus_cov`.\n- `pathway_dir`: Not set.\n- `output_dir`: `/home/rajroy/last_test`.\n\nNext steps:\n1. Set the `genbank_path` if you want to run antiSMASH.\n2. Run antiSMASH using the command: `antismash --taxon prokaryote --output-dir /home/rajroy/last_test <genbank_path>`.\n\nIf you need immediate pathway analysis, ensure antiSMASH is done first.",
+      "condition": ""
+    },
+    {
+      "role": "user",
+      "content": "reser hard",
+      "condition": ""
+    },
+    {
+      "role": "assistant",
+      "content": "Session reset. Paths have been cleared:\n\n- `genbank_path`: Not set.\n- `antismash_dir`: Not set.\n- `pathway_dir`: Not set.\n- `output_dir`: `/home/rajroy/last_test`.\n\nNext steps:\n1. Set the `genbank_path` if you want to run antiSMASH.\n2. Run antiSMASH using the command: `antismash --taxon prokaryote --output-dir /home/rajroy/last_test <genbank_path>`.\n\nIf you need immediate pathway analysis, ensure antiSMASH is done first.",
+      "condition": ""
     }
   ]
 }

@@ -6,3 +6,4 @@ agent/__pycache__/*
 .idea
 /data/testing.py
 /outputs/
+/output/

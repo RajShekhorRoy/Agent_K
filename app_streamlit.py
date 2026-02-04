@@ -115,26 +115,7 @@ with st.sidebar:
 # -------------------------
 llm = OllamaChatLLM(base_url=ollama_url, model=model)
 tools = ToolRunner()
-# components.iframe("https://www.kegg.jp/kegg-bin/show_pathway?map01053/R07644/C00022/C00020/C00013/C05821/C00885/R01717/R03037/C04171//image1x", width=1000,height=1000)
-# st.html("https://www.kegg.jp/kegg-bin/show_pathway?map01053/R07644/C00022/C00020/C00013/C05821/C00885/R01717/R03037/C04171//image1x")
 
-# components.iframe(
-#     src="https://www.kegg.jp/kegg-bin/show_pathway?map01053/R07644/C00022/C00020/C00013/C05821/C00885/R01717/R03037/C04171//image1x",
-#     height=800,          # adjust or compute dynamically
-#     scrolling=True
-# )
-
-# -------------------------
-# Render chat history
-# -------------------------
-# table_str = """
-# Name      Age   City
-# Alice     30    NY
-# Bob       25    LA
-# Charlie   35    SF
-# """
-#
-# st.text(table_str)
 
 for msg in st.session_state.messages:
     st.set_page_config(layout="wide")
@@ -206,7 +187,7 @@ if user_text:
 
     with st.chat_message("assistant"):
         if special_condition == "TABLE":
-            st.code(msg["content"])
+            st.code(agent_reply)
         elif special_condition == "DETAILS" :
             st.markdown(agent_reply['Details']['product'])
             components.iframe(agent_reply['Details']['pathway'], width="100%",height=1000,scrolling=True)
