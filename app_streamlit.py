@@ -4,6 +4,7 @@ import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
 
+from agent.frontend_asset import STICKY_HEADER, CSS
 from agent.state import AgentState
 from agent.tools import ToolRunner
 from agent.llm_ollama import OllamaChatLLM
@@ -15,39 +16,11 @@ st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="centered")
 # st.title("BGC Agent")
 # st.caption("Local, free LLM via Ollama + Qwen2.5. Runs your scripts and chats about outputs.")
 
-CSS = """
-.stChatMessage:has([data-testid="stChatMessageAvatarUser"]) {
-    display: flex;
-    flex-direction: row-reverse;
-    align-itmes: end;
-}
 
-[data-testid="stChatMessageAvatarUser"] + [data-testid="stChatMessageContent"] * {
-    text-align: right;
-}
-"""
 st.html(f"<style>{CSS}</style>")
 
 # sticky header
-st.markdown(
-    """
-<style>
-    div[data-testid="stVerticalBlock"] div:has(div.fixed-header) {
-        position: sticky;
-        top: 2.875rem;
-        color: #02665D;
-        background-color: white;
-        z-index: 999;
-        overflow: hidden;
-        max-width: 100vw;
-        box-sizing: border-box;
-    }
-    .fixed-header {
-        border-bottom: 1px solid black;
-    }
-</style>
-    """,
-    unsafe_allow_html=True
+st.markdown(STICKY_HEADER,   unsafe_allow_html=True
 )
 header = st.container()
 header.title("Agent K")
