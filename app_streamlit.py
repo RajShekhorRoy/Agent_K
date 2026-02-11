@@ -41,12 +41,14 @@ header.write("""<div class='fixed-header'/>""", unsafe_allow_html=True)
 # -------------------------
 # Sidebar: settings first
 # -------------------------
+#will need to be replaced
+default_out = os.path.abspath("./output")
 with st.sidebar:
     st.header("Settings")
     model = st.text_input("Ollama model", value="qwen2.5:7b-instruct")
     ollama_url = st.text_input("Ollama URL", value="http://127.0.0.1:11434")
     # default_out = st.text_input("Default output dir", value=os.path.abspath("./outputs"))
-    default_out = st.text_input("Default session file", value=os.path.abspath("./output"))
+    # default_out = st.text_input("Default session file", value=os.path.abspath("./output"))
 
 # Make sure default_out exists (so load/save has somewhere to go)
 # ensure_dir(default_out)
@@ -82,11 +84,40 @@ if "messages" not in st.session_state:
 # -------------------------
 # Sidebar: live state view (NOW safe)
 # -------------------------
+
+
 with st.sidebar:
     st.markdown("---")
-    st.header("Agent State (live)")
-    st.json(st.session_state.state.model_dump())
+    st.header("Agent State (editable)")
 
+    state = st.session_state.state
+    state_dict = state.model_dump()
+
+    edited = {}
+    for k, v in state_dict.items():
+        if k in {"notes", "artifacts"}:
+            continue
+        edited[k] = st.text_input(
+            k,
+            value=json.dumps(v) if isinstance(v, (dict, list)) else str(v),
+            key=f"edit_{k}",
+        )
+
+    if st.button("Apply Changes", key="apply_state_changes"):
+        updates = {}
+        for k, text_val in edited.items():
+            try:
+                updates[k] = json.loads(text_val)  # supports numbers/bool/dict/list
+            except Exception:
+                updates[k] = text_val              # fallback to string
+
+        # ✅ This works even if the model is frozen
+        st.session_state.state = state.model_copy(update=updates)
+
+        st.success("Applied.")
+        # st.rerun()
+
+    # keep these read-only
     with st.expander("Artifacts", expanded=False):
         st.json(st.session_state.state.artifacts)
 
