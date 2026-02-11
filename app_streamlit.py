@@ -4,19 +4,29 @@ import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
 
-from agent.frontend_asset import STICKY_HEADER, CSS
+from agent.frontend_asset import STICKY_HEADER
 from agent.state import AgentState
 from agent.tools import ToolRunner
 from agent.llm_ollama import OllamaChatLLM
 from agent.utils import ensure_dir, handle_details_view
 from agent.persistence import save_session, load_session
 
-st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="centered")
+st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="wide")
 
 # st.title("BGC Agent")
 # st.caption("Local, free LLM via Ollama + Qwen2.5. Runs your scripts and chats about outputs.")
 
+CSS = """
+.stChatMessage:has([data-testid="stChatMessageAvatarUser"]) {
+    display: flex;
+    flex-direction: row-reverse;
+    align-itmes: end;
+}
 
+[data-testid="stChatMessageAvatarUser"] + [data-testid="stChatMessageContent"] * {
+    text-align: right;
+}
+"""
 st.html(f"<style>{CSS}</style>")
 
 # sticky header
@@ -91,7 +101,7 @@ tools = ToolRunner()
 
 
 for msg in st.session_state.messages:
-    st.set_page_config(layout="wide")
+    # st.set_page_config(layout="wide")
     with st.chat_message(msg["role"]):
         if  "condition" in msg :
             if msg["condition"] == "TABLE":
@@ -112,7 +122,7 @@ def add_msg(role, content,condition=""):
     st.session_state.messages.append({"role": role, "content": content, "condition": condition})
 
 if user_text:
-    st.set_page_config(layout="wide")
+    # st.set_page_config(layout="wide")
 
     add_msg("user", user_text)
     with st.chat_message("user"):
@@ -166,3 +176,4 @@ if user_text:
             components.iframe(agent_reply['Details']['pathway'], width="100%",height=1000,scrolling=True)
         else:
             st.markdown(agent_reply)
+    st.rerun()

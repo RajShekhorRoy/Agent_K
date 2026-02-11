@@ -19,14 +19,3 @@ STICKY_HEADER =    """
 
 
 
-CSS = """
-.stChatMessage:has([data-testid="stChatMessageAvatarUser"]) {
-    display: flex;
-    flex-direction: row-reverse;
-    align-itmes: end;
-}
-
-[data-testid="stChatMessageAvatarUser"] + [data-testid="stChatMessageContent"] * {
-    text-align: right;
-}
-"""

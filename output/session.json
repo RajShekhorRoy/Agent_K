@@ -1,47 +1,47 @@
 {
   "state": {
     "genbank_path": null,
-    "output_dir": "/home/rajroy/PycharmProjects/Agent_K/output",
+    "output_dir": "/Users/rajroy/Agent_K/output",
     "pathway_dir": null,
-    "antismash_dir": "/home/rajroy/antismash_test_121625/consensus_cov",
-    "antismash_done": true,
+    "antismash_dir": null,
+    "antismash_done": false,
     "pathway_done": false,
-    "bgc_id": null,
+    "bgc_id": "uyuyuyyu2",
     "pathway_id": null,
-    "similarity": 0,
+    "similarity": 0.0,
     "artifacts": {},
     "notes": []
   },
   "messages": [
     {
       "role": "user",
-      "content": "hi",
+      "content": "set uyuyuyyu as bgn id",
       "condition": ""
     },
     {
       "role": "assistant",
-      "content": "Hello! It seems we don't have any specific tasks or queries to address based on the current state. Could you please provide more details about what you'd like to do? For example, are you interested in running antiSMASH, analyzing pathways, or displaying BGCs from a previous run?",
+      "content": "uyuyuyyu is set as priority",
       "condition": ""
     },
     {
       "role": "user",
-      "content": "show me bgcs from this file /home/rajroy/antismash_test_121625/consensus_cov/index.html",
+      "content": "set uyuyuyyu2 as bgn id",
       "condition": ""
     },
     {
       "role": "assistant",
-      "content": "\"error\"",
+      "content": "uyuyuyyu2 is set as priority",
       "condition": ""
     },
     {
       "role": "user",
-      "content": "show bgc form /home/rajroy/antismash_test_121625/consensus_cov/",
+      "content": "set outout as output dir",
       "condition": ""
     },
     {
       "role": "assistant",
-      "content": "Contig                   Region                   BGC_ID                   Similarity               \n----------------------------------------------------------------------------------------------------\ncontig_1                 Region 1                 BGC0000888.5             0.41                     \ncontig_1                 Region 1                 BGC0002218.2             0.39                     \ncontig_1                 Region 1                 BGC0000043.5             0.39                     \ncontig_1                 Region 1                 BGC0001184.4             0.38                     \ncontig_1                 Region 1                 BGC0001197.5             0.37                     \ncontig_1                 Region 1                 BGC0002000.4             0.36                     \ncontig_1                 Region 1                 BGC0000188.5             0.36                     \ncontig_1                 Region 1                 BGC0001810.3             0.35                     \ncontig_1                 Region 1                 BGC0002477.3             0.35                     \ncontig_1                 Region 1                 BGC0000384.6             0.35                     \ncontig_1                 Region 2                 BGC0001962.3             0.27                     \ncontig_1                 Region 2                 BGC0000188.5             0.24                     \ncontig_1                 Region 2                 BGC0001650.4             0.23                     \ncontig_1                 Region 2                 BGC0000452.5             0.21                     \ncontig_1                 Region 2                 BGC0000651.5             0.2                      \ncontig_1                 Region 2                 BGC0001283.3             0.19                     \ncontig_1                 Region 3                 BGC0002689.2             1.19                     \ncontig_1                 Region 3                 BGC0001132.4             0.75                     \ncontig_1                 Region 3                 BGC0002286.3             0.72                     \ncontig_1                 Region 3                 BGC0001833.4             0.72                     \ncontig_1                 Region 3                 BGC0001128.4             0.72                     \ncontig_1                 Region 3                 BGC0001825.4             0.72                     \ncontig_1                 Region 3                 BGC0001758.4             0.71                     \ncontig_1                 Region 3                 BGC0000343.5             0.71                     \ncontig_1                 Region 3                 BGC0001135.5             0.7                      \ncontig_1                 Region 3                 BGC0001641.4             0.68                     \ncontig_1                 Region 4                 BGC0002397.2             0.47                     \ncontig_1                 Region 4                 BGC0002400.2             0.44                     \ncontig_1                 Region 4                 BGC0002398.2             0.38                     \ncontig_1                 Region 4                 BGC0000640.3             0.37                     \ncontig_1                 Region 4                 BGC0000630.3             0.36                     \ncontig_1                 Region 4                 BGC0000643.3             0.36                     \ncontig_1                 Region 4                 BGC0000634.3             0.35                     \ncontig_1                 Region 4                 BGC0002219.2             0.35                     \ncontig_1                 Region 4                 BGC0000639.3             0.35                     \ncontig_1                 Region 4                 BGC0000641.3             0.35                     \ncontig_1                 Region 5                 BGC0002341.2             0.75                     \ncontig_1                 Region 5                 BGC0002608.2             0.75                     \ncontig_1                 Region 5                 BGC0000836.5             0.64                     \ncontig_1                 Region 5                 BGC0002008.3             0.63                     \ncontig_1                 Region 5                 BGC0002276.2             0.6                      \ncontig_1                 Region 5                 BGC0002154.2             0.59                     \ncontig_1                 Region 5                 BGC0001895.4             0.5                      \ncontig_1                 Region 5                 BGC0001723.5             0.49                     \ncontig_1                 Region 5                 BGC0002047.2             0.49                     \ncontig_1                 Region 5                 BGC0000837.4             0.49                     ",
-      "condition": "TABLE"
+      "content": "The `output_dir` has been set to `/Users/rajroy/Agent_K/output`.\n\nSince the `antismash_done` and `pathway_done` flags are currently false, no antiSMASH or pathway analysis has been performed yet. The tool logs do not contain any results or errors.\n\nIf you would like to proceed with antiSMASH analysis, please provide a valid `genbank_path`. Once the analysis is complete, I can run the pathway prediction and provide the results.",
+      "condition": ""
     }
   ]
 }
