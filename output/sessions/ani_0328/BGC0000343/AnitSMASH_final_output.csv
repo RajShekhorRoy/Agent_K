@@ -1,0 +1,2 @@
+Contig,Region,BGC_ID,Similarity,pathway,reactions,products
+contig_1,Region 3,BGC0000343.5,0.71,['01053'],"['R07644', 'R03037', 'R01717']","['(2S,3S)-2,3-Dihydro-2,3-dihydroxybenzoate', 'Pyruvate', 'Diphosphate', 'Isochorismate', 'Enterochelin', 'AMP']"

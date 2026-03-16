@@ -1,0 +1,13 @@
+## Mon Mar 16 11:40:11 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000343/bio_syn_fasta//BGC0000343.fasta --output_dir /home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000343/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000343 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000343/bio_syn_fasta/BGC0000343.fasta' --threads 21 -o '/home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000343/emapper/BGC0000343.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/Agent_K/emappertmp_dmdn_uhconts4' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+isochorismate_synthase	686578.AFFX01000001_gene1416	1.38e-218	609.0	29	390	2	363	83.7	92.8	99.7
+enterobactin_synthase_subunit_E	686578.AFFX01000001_gene1417	3.01e-305	842.0	1	537	1	537	80.3	99.3	99.3
+isochorismatase	686578.AFFX01000001_gene1418	8.01e-179	501.0	1	290	1	290	83.8	100.0	100.0
+enterobactin_synthetase_component_F	686578.AFFX01000001_gene1419	0.0	1280.0	1	843	1	844	78.3	100.0	81.6
+## 4 queries scanned
+## Total time (seconds): 0.005468606948852539
+## Rate: 731.45 q/s

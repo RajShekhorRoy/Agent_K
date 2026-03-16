@@ -1,0 +1,27 @@
+{
+  "state": {
+    "genbank_path": null,
+    "output_dir": "/home/rajroy/PycharmProjects/Agent_K/output/sessions/anti_031627",
+    "pathway_dir": null,
+    "antismash_dir": null,
+    "antismash_done": false,
+    "pathway_done": false,
+    "bgc_id": null,
+    "pathway_id": null,
+    "similarity": 0.0,
+    "artifacts": {},
+    "notes": []
+  },
+  "messages": [
+    {
+      "role": "user",
+      "content": "hi",
+      "condition": ""
+    },
+    {
+      "role": "assistant",
+      "content": "Hello! It seems we don't have any specific tasks to run or display at the moment. Could you please provide more details on what you'd like to do, such as running antiSMASH, analyzing pathways, or displaying BGCs?",
+      "condition": ""
+    }
+  ]
+}

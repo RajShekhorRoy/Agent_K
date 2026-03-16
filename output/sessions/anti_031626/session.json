@@ -1,0 +1,16 @@
+{
+  "state": {
+    "genbank_path": null,
+    "output_dir": "/home/rajroy/PycharmProjects/Agent_K/output/sessions/anti_031626",
+    "pathway_dir": null,
+    "antismash_dir": null,
+    "antismash_done": false,
+    "pathway_done": false,
+    "bgc_id": null,
+    "pathway_id": null,
+    "similarity": 0,
+    "artifacts": {},
+    "notes": []
+  },
+  "messages": []
+}

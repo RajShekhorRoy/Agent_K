@@ -1,0 +1,18 @@
+## Mon Mar 16 11:58:41 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000836/bio_syn_fasta//BGC0000836.fasta --output_dir /home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000836/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000836 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000836/bio_syn_fasta/BGC0000836.fasta' --threads 21 -o '/home/rajroy/PycharmProjects/Agent_K/output/sessions/ani_0328/BGC0000836/emapper/BGC0000836.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/Agent_K/emappertmp_dmdn_j10gy981' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+Putative_beta-ketoacyl-ACP_synthase	199310.c1186	1.84e-301	821.0	1	409	1	409	100.0	100.0	100.0
+3-oxoacyl-[acyl-carrier_protein]_reductase	199310.c1187	9.7e-168	469.0	1	243	1	243	100.0	100.0	100.0
+Putative_3-oxoacyl-[ACP]_synthase	199310.c1189	4.71e-284	776.0	1	392	1	392	100.0	100.0	100.0
+Hypothetical_protein	155864.EDL933_4698	1.02e-98	286.0	1	140	1	140	100.0	100.0	100.0
+Putative_enzyme	199310.c1194	0.0	1091.0	1	540	1	540	100.0	100.0	100.0
+Putative_acyl_carrier_protein	199310.c1199	3.28e-48	154.0	1	83	1	83	100.0	100.0	100.0
+Putative_phospholipid_biosynthesis_acyltransferase	199310.c1201	3.71e-199	551.0	1	279	1	279	100.0	100.0	100.0
+Conserved_hypothetical_protein	199310.c1202	5.24e-179	498.0	1	248	1	248	100.0	100.0	100.0
+Putative_O-methyltransferase	199310.c1203	2.73e-265	725.0	1	352	1	352	100.0	100.0	100.0
+## 9 queries scanned
+## Total time (seconds): 0.016544342041015625
+## Rate: 543.99 q/s
