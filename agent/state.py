@@ -4,7 +4,7 @@ from typing import Optional, Dict, Any, List
 class AgentState(BaseModel):
     genbank_path: Optional[str] = None
     output_dir: str
-    pathway_dir: Optional[str] = None
+    # pathway_dir: Optional[str] = None
     antismash_dir: Optional[str] = None
 
     antismash_done: bool = False

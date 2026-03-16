@@ -5,7 +5,7 @@ import pandas as pd
 import streamlit as st
 import streamlit.components.v1 as components
 
-from agent.frontend_asset import STICKY_HEADER
+from agent.frontend_asset import STICKY_HEADER, button_style
 from agent.prompts import get_system_prompt
 from agent.state import AgentState
 from agent.tools import ToolRunner
@@ -20,29 +20,7 @@ from agent.persistence import (
     session_exists,
 )
 
-st.markdown("""
-<style>
- 
-button[kind="secondary"] {
-    background-color: #e53935;
-    color: white;
-    border-radius: 6px;
-}
-button[kind="secondary"]:hover {
-    background-color: #c62828;
-}
-
-button[kind="primary"] {
-    background-color: #188d62;
-    color: white;
-    border-radius: 6px;
-    border-color:#26db99;
-}
-button[kind="primary"]:hover {
-    background-color: #05b571;
-}
-</style>
-""", unsafe_allow_html=True)
+st.markdown(button_style, unsafe_allow_html=True)
 st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="wide")
 
 CSS = """
@@ -236,7 +214,7 @@ with st.sidebar:
                     st.rerun()
 
             with col2:
-                if st.button("Cancel", use_container_width=True,type="primary"):
+                if st.button("Cancel", use_container_width=True,type="tertiary"):
                     st.session_state.pending_delete_chat = None
                     st.rerun()
 
@@ -265,7 +243,7 @@ with st.sidebar:
                 key=f"edit_{k}",
             )
 
-        if st.button("Apply Changes", key="apply_state_changes"):
+        if st.button("Apply Changes", key="apply_state_changes",type="primary"):
             updates = {}
             for k in state_dict.keys():
                 if k in NON_EDITABLE_STATE_FIELDS:
@@ -283,11 +261,11 @@ with st.sidebar:
             st.success("Applied.")
             st.rerun()
 
-    with st.expander("Artifacts", expanded=False):
-        st.json(st.session_state.state.artifacts)
-
-    with st.expander("Notes", expanded=False):
-        st.write(st.session_state.state.notes)
+    # with st.expander("Artifacts", expanded=False):
+    #     st.json(st.session_state.state.artifacts)
+    #
+    # with st.expander("Notes", expanded=False):
+    #     st.write(st.session_state.state.notes)
 
 # -------------------------
 # LLM + tools

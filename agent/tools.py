@@ -255,6 +255,7 @@ class ToolRunner:
         #     tool_logs.append(self.tool_read_file(state, args.get("path", "")))
         elif action == "show_pathway_details":
             if args.get("pathway_id") != None:
+                state.pathway_id = args.get("pathway_id")
                 pathway_details = self.show_pathway_details(state,args.get("pathway_id"))
                 special_condition = "DETAILS"
                 return  pathway_details, state,special_condition
