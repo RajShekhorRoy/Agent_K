@@ -286,3 +286,8 @@ def handle_details_view (_details)->str:
     return  content
 
 # get_products_by_pathway("/home/rajroy/PycharmProjects/Agent_K/outputs/BGC0001184/details/BGC0001184/details.csv","00270")
+
+
+def get_antismash_run_cmd (_as_exec,_input,_output):
+    # return "sudo ~/bin/run_antismash /home/rajroy/PycharmProjects/metabolites/input/consensus_cov.gbff /home/rajroy/antismash_test_121625/  --cb-general   --cb-knownclusters   --cb-subclusters   --asf   --pfam2go   --cc-mibig   --taxon bacteria  --cpu 16"
+    return "sudo {0} {1} {2}  --cb-general   --cb-knownclusters   --cb-subclusters   --asf   --pfam2go   --cc-mibig   --taxon bacteria  --cpu 16".format(_as_exec,_input,_output)
