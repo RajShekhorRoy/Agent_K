@@ -1,3 +1,4 @@
+import ast
 import json
 import os
 import re
@@ -5,6 +6,32 @@ import re
 import pandas as pd
 from bs4 import BeautifulSoup
 
+
+def parse_state_value(text: str):
+    text = text.strip()
+
+    if text == "":
+        return ""
+
+    lower = text.lower()
+    if lower == "true":
+        return True
+    if lower == "false":
+        return False
+    if lower == "null":
+        return None
+
+    try:
+        return json.loads(text)
+    except Exception:
+        pass
+
+    try:
+        return ast.literal_eval(text)
+    except Exception:
+        pass
+
+    return text
 
 def ensure_dir(path: str):
     os.makedirs(path, exist_ok=True)

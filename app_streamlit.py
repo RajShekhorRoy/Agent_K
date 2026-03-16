@@ -6,10 +6,11 @@ import streamlit as st
 import streamlit.components.v1 as components
 
 from agent.frontend_asset import STICKY_HEADER
+from agent.prompts import get_system_prompt
 from agent.state import AgentState
 from agent.tools import ToolRunner
 from agent.llm_ollama import OllamaChatLLM
-from agent.utils import ensure_dir, handle_details_view
+from agent.utils import ensure_dir, handle_details_view, parse_state_value
 from agent.persistence import (
     save_session,
     load_session,
@@ -19,6 +20,29 @@ from agent.persistence import (
     session_exists,
 )
 
+st.markdown("""
+<style>
+ 
+button[kind="secondary"] {
+    background-color: #e53935;
+    color: white;
+    border-radius: 6px;
+}
+button[kind="secondary"]:hover {
+    background-color: #c62828;
+}
+
+button[kind="primary"] {
+    background-color: #188d62;
+    color: white;
+    border-radius: 6px;
+    border-color:#26db99;
+}
+button[kind="primary"]:hover {
+    background-color: #05b571;
+}
+</style>
+""", unsafe_allow_html=True)
 st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="wide")
 
 CSS = """
@@ -41,32 +65,6 @@ header.write("""<div class='fixed-header'/>""", unsafe_allow_html=True)
 
 NON_EDITABLE_STATE_FIELDS = {"notes", "artifacts", "code_to_exec"}
 
-
-def parse_state_value(text: str):
-    text = text.strip()
-
-    if text == "":
-        return ""
-
-    lower = text.lower()
-    if lower == "true":
-        return True
-    if lower == "false":
-        return False
-    if lower == "null":
-        return None
-
-    try:
-        return json.loads(text)
-    except Exception:
-        pass
-
-    try:
-        return ast.literal_eval(text)
-    except Exception:
-        pass
-
-    return text
 
 
 def sync_state_editor_from_state(state: AgentState):
@@ -159,7 +157,7 @@ with st.sidebar:
 
     new_chat_name = st.text_input("New chat name", value="", key="new_chat_name")
 
-    if st.button("Create New Chat", use_container_width=True):
+    if st.button("Create New Chat", use_container_width=True,type="primary",icon="➕"):
         chat_name = new_chat_name.strip()
 
         if not chat_name:
@@ -205,7 +203,7 @@ with st.sidebar:
 
             st.rerun()
 
-        if st.button("Delete Current Chat", use_container_width=True):
+        if st.button("Delete Chat", use_container_width=True,type="secondary",icon="🗑"):
             st.session_state.pending_delete_chat = st.session_state.current_chat_name
             st.rerun()
 
@@ -216,7 +214,7 @@ with st.sidebar:
             col1, col2 = st.columns(2)
 
             with col1:
-                if st.button("Confirm Delete", use_container_width=True):
+                if st.button("Confirm Delete", use_container_width=True, icon="🛑",type="tertiary"):
                     delete_session(base_output_dir, st.session_state.current_chat_name)
 
                     remaining = list_sessions(base_output_dir)
@@ -238,7 +236,7 @@ with st.sidebar:
                     st.rerun()
 
             with col2:
-                if st.button("Cancel", use_container_width=True):
+                if st.button("Cancel", use_container_width=True,type="primary"):
                     st.session_state.pending_delete_chat = None
                     st.rerun()
 
@@ -331,13 +329,7 @@ if user_text:
 
     state = st.session_state.state
 
-    system = (
-        "You are a helpful bioinformatics pipeline assistant.\n"
-        "You can ask for missing info (genbank path, anitsmash dir, pathway dir, analysis dir), and you can run tools.\n"
-        "pathway dir and analysis dir referes to the same directory.\n"
-        "Be concise. When you run tools, explain what you ran and where outputs are.\n"
-        "If user asks about outputs, inspect files and summarize.\n"
-    )
+    system = get_system_prompt()
 
     agent_reply, new_state, special_condition = tools.agent_turn(
         llm=llm,

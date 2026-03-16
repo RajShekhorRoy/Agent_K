@@ -148,3 +148,10 @@ def build_summarizer_prompt(state: AgentState, tool_logs: List[Dict[str, Any]]) 
     
         "Now answer the user's last message using ONLY the State and Tool logs above.\n"
     )
+
+def get_system_prompt():
+    return  ( "You are a helpful bioinformatics pipeline assistant.\n"
+        "You can ask for missing info (genbank path, anitsmash dir, pathway dir, analysis dir), and you can run tools.\n"
+        "pathway dir and analysis dir referes to the same directory.\n"
+        "Be concise. When you run tools, explain what you ran and where outputs are.\n"
+        "If user asks about outputs, inspect files and summarize.\n")
