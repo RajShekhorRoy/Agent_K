@@ -2,7 +2,7 @@ import ast
 import json
 import os
 import re
-
+import tomllib
 import pandas as pd
 from bs4 import BeautifulSoup
 
@@ -288,6 +288,28 @@ def handle_details_view (_details)->str:
 # get_products_by_pathway("/home/rajroy/PycharmProjects/Agent_K/outputs/BGC0001184/details/BGC0001184/details.csv","00270")
 
 
-def get_antismash_run_cmd (_as_exec,_input,_output):
+def get_antismash_run_cmd (_input,_output):
+    _as_exec = get_antismash_exec()
+    print(_as_exec)
     # return "sudo ~/bin/run_antismash /home/rajroy/PycharmProjects/metabolites/input/consensus_cov.gbff /home/rajroy/antismash_test_121625/  --cb-general   --cb-knownclusters   --cb-subclusters   --asf   --pfam2go   --cc-mibig   --taxon bacteria  --cpu 16"
-    return "sudo {0} {1} {2}  --cb-general   --cb-knownclusters   --cb-subclusters   --asf   --pfam2go   --cc-mibig   --taxon bacteria  --cpu 16".format(_as_exec,_input,_output)
+    return "{0} {1} {2}  --cb-general   --cb-knownclusters   --cb-subclusters   --asf   --pfam2go   --cc-mibig   --taxon bacteria  --cpu 16".format(_as_exec,_input,_output)
+
+
+def get_toml():
+
+    print(os.path.abspath(".streamlit/config.toml"))
+    with open(".streamlit/config.toml", "rb") as f:
+        cfg = tomllib.load(f)
+    return cfg
+
+
+def get_antismash_exec():
+    cfg= get_toml()
+    antismash_exec =  cfg["tools"]["anitsmash_exec_mac"]
+    return antismash_exec
+
+
+def get_emapper():
+    cfg= get_toml()
+    emapper_exec =  cfg["tools"]["emapper_mac"]
+    return emapper_exec

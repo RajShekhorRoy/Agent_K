@@ -1,8 +1,9 @@
-
-import os
+import psutil,shutil
+import os,sys
 import json
 import shlex
 import subprocess
+import time
 
 from typing import Dict, Any, List, Tuple, Optional
 
@@ -10,7 +11,8 @@ from typing import Dict, Any, List, Tuple, Optional
 
 from agent.state import AgentState
 from agent.utils import ensure_dir, list_files_recursive, read_text_safely, display_antismash_bgc, log_to_file, \
-    parse_plan_json, df_to_fixed_width_table, kegg_pathway_frequency, get_products_by_pathway, get_kegg_links_by_pathway
+    parse_plan_json, df_to_fixed_width_table, kegg_pathway_frequency, get_products_by_pathway, \
+    get_kegg_links_by_pathway, get_antismash_run_cmd
 from agent.prompts import build_planner_prompt, build_summarizer_prompt
 
 
@@ -70,16 +72,10 @@ class ToolRunner:
     ####main function call
     ##currently unavailable
     def tool_run_antismash(self, state: AgentState) -> Dict[str, Any]:
-        if not state.genbank_path:
-            return {"ok": False, "error": "genbank_path is not set"}
-        ensure_dir(state.antismash_dir)
-
-        cmd = "bash scripts/run_antismash.sh {gb} {out}".format(
-            gb=shlex.quote(state.genbank_path),
-            out=shlex.quote(state.antismash_dir),
-        )
-        res = self.run_cmd(cmd)
-        if res.get("ok"):
+        cmd =get_antismash_run_cmd( state.genbank_path , state.antismash_dir)
+        # print(cmd)
+        res = os.system(cmd)
+        if res =="0":
             state.antismash_done = True
         return res
 
@@ -91,7 +87,16 @@ class ToolRunner:
         _output_dir = state.output_dir+"/"+str(state.bgc_id)+"/"
         # ensure_dir(state.pathway_dir)
         ensure_dir(_output_dir)
-        cmd = "python /home/rajroy/PycharmProjects/metabolites/all_bgc_AS_map_agentic_version.py {0} {1} {2}".format(_input_dir,_output_dir,str(state.bgc_id.split("_")[0] )       )
+        script_path = os.path.abspath("./scripts/libs/all_bgc_AS_map_agentic_version.py")
+        print(script_path)
+
+
+
+        print("PYTHON EXECUTABLE:", sys.executable)
+        print("PYTHON VERSION:", sys.version)
+        print("PATH:", os.environ.get("PATH"))
+
+        cmd = "python {0} {1} {2} {3}".format(script_path,_input_dir,_output_dir,str(state.bgc_id.split("_")[0] )       )
         res = os.system(cmd)
         if res==0:
             state.pathway_done = True
@@ -123,6 +128,7 @@ class ToolRunner:
     def get_pathway(self, state: AgentState) ->Any:
 
         details_dir = state.output_dir + "/" + str(state.bgc_id) + "/details/"+str(state.bgc_id)+"/details.csv"
+        print(details_dir)
         # mibig_similarity = state.output_dir + "/" + str(state.bgc_id) + "/mibig_hits_with_similarity.csv"
 
         # product_file = state.output_dir + "/" + str(state.bgc_id) + "/details/product_mapped.txt"
@@ -230,8 +236,43 @@ class ToolRunner:
                 output_dir=args.get("output_dir"),
             )
         elif action == "run_antismash":
+
+            ####new code
+            if args.get("genbank_path") != None:
+                state.genbank_path = args.get("genbank_path")
+            else:
+                return "Genebank file not provided", state, None
+
+            if args.get("antismash_dir") != None:
+                state.antismash_dir = args.get("antismash_dir")
+            else:
+                state.antismash_dir =state.output_dir+"/antismash/"
+                if not os.path.exists(state.antismash_dir):
+                    os.makedirs(state.antismash_dir)
+
+            # try:
+                # state = self.tool_run_antismash(state)
             tool_logs.append(self.tool_run_antismash(state))
-            return "Feature not available yet", state, special_condition
+            state.antismash_done=True
+            state.antismash_dir =state.antismash_dir+str(os.path.basename(state.genbank_path).split(".")[0]+"/")
+
+            index_file = state.antismash_dir+"index.html"
+            print(index_file)
+            print(os.path.exists(index_file))
+            while (not os.path.exists(index_file)):
+                time.sleep(5)
+            display_antismash_bgc(index_file,state.output_dir,state.similarity)
+
+            #run display
+            response_data = self.tool_read_antisamsh_bgc(state)
+            res= tool_logs.append(response_data)
+            special_condition = "TABLE"
+            return  df_to_fixed_width_table (response_data['json_data']), state,special_condition
+
+
+            # except Exception as e:
+            #     return str(e), state, special_condition
+            # return "Feature not available yet", state, special_condition
         elif action=="set_bgc_id":
             state = self.set_bgc_id(
                 state,
