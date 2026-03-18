@@ -57,5 +57,7 @@ dataframeHeaderBackgroundColor = "#e4e4e0"
 
 [tools]
 anitsmash_exec_mac = "~/bin/run_antismash"
-emapper_mac="/Users/rajroy/eggnog-mapper/emapper.py"
+emapper_mac="/home/rajroy/Downloads/tools/eggnog-mapper/emapper.py"
+emapper_mac2="/Users/rajroy/eggnog-mapper/emapper.py"
+emapper_linux="/home/rajroy/Downloads/tools/eggnog-mapper/emapper.py"
 

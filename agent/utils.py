@@ -2,8 +2,9 @@ import ast
 import json
 import os
 import re
-import tomllib
-import pandas as pd
+import tomli as tomllib
+
+# import pandas as pd
 from bs4 import BeautifulSoup
 
 
