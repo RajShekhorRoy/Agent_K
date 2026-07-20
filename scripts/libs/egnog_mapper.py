@@ -1,5 +1,3 @@
-import csv
-import sys
 import itertools
 import time
 from collections import Counter
@@ -23,7 +21,7 @@ from pathlib import Path
 SCRIPT_DIR = Path(__file__).resolve().parent
 
 # kegg_id = text_file_reader(SCRIPT_DIR"/kegg_map_ids.txt")
-file_path =text_file_reader( str(SCRIPT_DIR / "kegg_map_ids.txt"))
+kegg_id =text_file_reader( str(SCRIPT_DIR / "kegg_map_ids.txt"))
 
 
 

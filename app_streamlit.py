@@ -21,7 +21,7 @@ from agent.persistence import (
 )
 
 st.markdown(button_style, unsafe_allow_html=True)
-# st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="wide")
+st.set_page_config(page_title="BGC Agent (Qwen + antiSMASH)", layout="wide")
 
 CSS = """
 .stChatMessage:has([data-testid="stChatMessageAvatarUser"]) {
