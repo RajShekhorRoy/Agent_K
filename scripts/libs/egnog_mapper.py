@@ -1,5 +1,3 @@
-import csv
-import sys
 import itertools
 import time
 from collections import Counter
