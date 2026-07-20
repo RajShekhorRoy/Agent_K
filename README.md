@@ -32,10 +32,10 @@
 
 Before running **Agent_K**, install the following external tools:
 
-| Tool | Purpose | Installation |
-|------|---------|--------------|
-| **antiSMASH** | Biosynthetic gene cluster prediction | https://github.com/antismash/antismash |
-| **eggNOG-mapper** | Functional annotation | https://github.com/eggnogdb/eggnog-mapper |
+| Tool | Tested Version | Installation |
+|------|----------------|--------------|
+| **antiSMASH** | 8.0.4          | https://github.com/antismash/antismash |
+| **eggNOG-mapper** | 2.1.13         | https://github.com/eggnogdb/eggnog-mapper |
 
 > **Note:** Please follow the official installation instructions for each tool, including any required databases and dependencies.
 
@@ -51,6 +51,16 @@ cd Agent_K
 ```bash
 pip install -r requirements.txt
 ```
+### Setup the config file
+```
+Edit the .streamlit/config.toml with the appropiate path of the tools
+
+e.g: 
+emapper="/home/rajroy/Downloads/tools/eggnog-mapper/emapper.py"
+anitsmash_exec_mac = "~/bin/run_antismash"
+
+```
+
 
 ## 🚀 Running Agent_K
 

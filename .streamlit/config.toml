@@ -60,4 +60,4 @@ anitsmash_exec_mac = "~/bin/run_antismash"
 emapper_mac="/home/rajroy/Downloads/tools/eggnog-mapper/emapper.py"
 emapper_mac2="/Users/rajroy/eggnog-mapper/emapper.py"
 emapper_linux="/home/rajroy/Downloads/tools/eggnog-mapper/emapper.py"
-
+emapper="/home/rajroy/Downloads/tools/eggnog-mapper/emapper.py"

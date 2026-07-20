@@ -312,5 +312,5 @@ def get_antismash_exec():
 
 def get_emapper():
     cfg= get_toml()
-    emapper_exec =  cfg["tools"]["emapper_mac"]
+    emapper_exec =  cfg["tools"]["emapper"]
     return emapper_exec
