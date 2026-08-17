@@ -1,0 +1,11 @@
+## Thu Aug  6 13:04:35 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001650_r_2_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001650_r_2_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0001650_r_2_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0001650_r_2_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_qsgjbchm' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+PEP_phosphonomutase	84531.JMTZ01000022_gene4170	1.8e-134	387.0	1	275	1	270	74.9	100.0	100.0
+nonribosomal_peptide_synthase	1500893.JQNB01000001_gene2184	0.0	2860.0	131	3335	403	3552	52.9	95.9	88.5
+## 2 queries scanned
+## Total time (seconds): 0.030409574508666992
+## Rate: 65.77 q/s

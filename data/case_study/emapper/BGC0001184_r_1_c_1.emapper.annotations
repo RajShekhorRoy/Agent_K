@@ -1,0 +1,11 @@
+## Thu Aug  6 12:32:18 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001184_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001184_r_1_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+YwfG	326423.RBAM_034880	1.33e-298	813.0	COG0436@1|root,COG0436@2|Bacteria,1TQD6@1239|Firmicutes,4HAHQ@91061|Bacilli,1ZEPP@1386|Bacillus	1239|Firmicutes	E	Aminotransferase class I and II	ywfG	GO:0003674,GO:0003824,GO:0008150,GO:0008152,GO:0008483,GO:0009058,GO:0009987,GO:0016740,GO:0016769,GO:0016999,GO:0017000,GO:0017144,GO:0044237,GO:0044249	2.6.1.83	ko:K08969,ko:K10206,ko:K19549	ko00270,ko00300,ko01100,ko01110,ko01130,ko01230,map00270,map00300,map01100,map01110,map01130,map01230	M00034,M00527,M00787	R07396,R07613,R11068	RC00006,RC01847	ko00000,ko00001,ko00002,ko01000,ko01007	-	-	-	Aminotran_1_2
+BacD	326423.RBAM_034900	0.0	927.0	COG0151@1|root,COG0151@2|Bacteria,1VSXT@1239|Firmicutes,4HT21@91061|Bacilli	1239|Firmicutes	F	Part of the bacABCDEFG operon responsible for the biosynthesis of bacilysin, an irreversible inactivator of the glutaminase domain of glucosamine synthetase. Catalyzes the formation of alpha-dipeptides from various L-amino acids in the presence of ATP. In vivo catalyzes the ligation of L-alanine and L-anticapsin (epoxycyclohexanonyl-Ala) to produce the final bacilysin antibiotic (L-Ala-L-4S-cyclohexenonyl-Ala dipeptide)	bacD	-	6.3.2.49	ko:K13037	ko01130,map01130	M00787	R11064	RC00064,RC00141	ko00000,ko00001,ko00002,ko01000	-	-	iYO844.BSU37710	ATP-grasp_4
+BacC	326423.RBAM_034910	7.72e-179	498.0	COG1028@1|root,COG1028@2|Bacteria,1TR5M@1239|Firmicutes,4HCD2@91061|Bacilli,1ZEJ9@1386|Bacillus	1239|Firmicutes	IQ	COG1028 Dehydrogenases with different specificities (related to short-chain alcohol dehydrogenases)	bacC	-	1.1.1.385	ko:K19548	ko01130,map01130	M00787	R10917	RC00154	ko00000,ko00001,ko00002,ko01000	-	-	-	adh_short_C2
+## 3 queries scanned
+## Total time (seconds): 2.178539276123047
+## Rate: 1.38 q/s

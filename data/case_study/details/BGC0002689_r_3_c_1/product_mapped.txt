@@ -1,0 +1,9 @@
+putative_enterobactin_synthetase_component_A_(2,3-dihydro-2,3-dihydroxybenzoate_dehydrogenase) : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C19830/C05821/C00022/R07644/R03037/C00013/C00080/C00885/C00004/R11463/C00196/R01717/C00020/R01505//image1x
+putative_enterobactin_synthetase_component_F : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C19830/C05821/C00022/R07644/R03037/C00013/C00080/C00885/C00004/R11463/C00196/R01717/C00020/R01505//image1x
+putative_enterobactin_synthetase_component_F : https://www.kegg.jp/kegg-bin/show_pathway?map01054/R07644/C05821/C00020/C00013//image1x
+putative_hydrolase : https://www.kegg.jp/kegg-bin/show_pathway?map02024/R03037/C04171/C00022/R07644/C05821/C00020/C00013/R11463/C19830/C00022//image1x
+putative_hydrolase : https://www.kegg.jp/kegg-bin/show_pathway?map00405/R03037/C04171/C00022/R07644/C05821/C00020/C00013/R11463/C19830/C00022//image1x
+putative_hydrolase : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C19830/C05821/C00022/R07644/R03037/C00013/C00080/C00885/C00004/R11463/C00196/R01717/C00020/R01505//image1x
+putative_siderophore_specific_2,3-dihydroxybenzoate-AMP_ligase : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C19830/C05821/C00022/R07644/R03037/C00013/C00080/C00885/C00004/R11463/C00196/R01717/C00020/R01505//image1x
+putative_enterobactin_synthetase_component_C_(isochorismate_synthase) : https://www.kegg.jp/kegg-bin/show_pathway?map00130/R01717/C00885//image1x
+putative_enterobactin_synthetase_component_C_(isochorismate_synthase) : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C19830/C05821/C00022/R07644/R03037/C00013/C00080/C00885/C00004/R11463/C00196/R01717/C00020/R01505//image1x

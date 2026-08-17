@@ -1,0 +1,9 @@
+thioredoxin-disulfide_reductase	100226.SCO6834	89.7	312	32	0	1	312	1	312	2.82e-198	553	94.5	95.7
+SDR_family_NAD(P)-dependent_oxidoreductase	100226.SCO6829	97.7	259	6	0	1	259	1	259	5.59e-175	489	100	100
+NAD(P)-binding_domain-containing_protein	100226.SCO6828	98.4	493	8	0	1	493	1	493	0.0	940	100	100
+type_I_polyketide_synthase	100226.SCO6827	96.3	2358	88	0	1	2358	1	2358	0.0	4301	100	100
+ketoacyl-ACP_synthase_III_family_protein	100226.SCO6826	100	346	0	0	1	346	1	346	1.97e-255	699	100	100
+ketoacyl-ACP_synthase_III_family_protein	66897.DJ64_24490	96.5	345	12	0	1	345	1	345	3.10e-248	681	99.7	99.1
+phosphonopyruvate_decarboxylase	100226.SCO6824	98.4	367	6	0	1	367	1	367	1.32e-250	689	100	100
+molybdopterin-dependent_oxidoreductase	66897.DJ64_24520	89.4	840	89	0	1	840	1	840	0.0	1566	100	100
+molybdopterin-dependent_oxidoreductase	100226.SCO6820	96.6	776	26	0	65	840	1	776	0.0	1556	92.4	100

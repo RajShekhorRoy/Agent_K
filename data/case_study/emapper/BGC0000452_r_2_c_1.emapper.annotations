@@ -1,0 +1,13 @@
+## Thu Aug  6 13:05:40 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000452_r_2_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000452_r_2_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+tyrocidine_synthetase_I	358681.BBR47_27870	0.0	2163.0	COG1020@1|root,COG1020@2|Bacteria,1TPTH@1239|Firmicutes,4HAHU@91061|Bacilli,26Q93@186822|Paenibacillaceae	1239|Firmicutes	Q	Non-ribosomal peptide synthetase modules and related proteins	bacC	-	-	ko:K16122	ko01054,map01054	-	-	-	ko00000,ko00001,ko01008	-	-	-	AMP-binding,AMP-binding_C,Condensation,PP-binding,Thioesterase
+tyrocidine_synthetase_II	358681.BBR47_27880	0.0	7096.0	COG1020@1|root,COG1020@2|Bacteria,1TPTH@1239|Firmicutes,4HAHU@91061|Bacilli,26Q93@186822|Paenibacillaceae	1239|Firmicutes	Q	Non-ribosomal peptide synthetase modules and related proteins	bacA1	-	-	ko:K16123,ko:K16124	ko01054,map01054	-	-	-	ko00000,ko00001,ko01008	-	-	-	AMP-binding,AMP-binding_C,Condensation,PP-binding,Thioesterase
+tyrocidine_synthetase_III	358681.BBR47_27890	0.0	12784.0	COG1020@1|root,COG1020@2|Bacteria,1TPTH@1239|Firmicutes,4HAHU@91061|Bacilli,26Q93@186822|Paenibacillaceae	1239|Firmicutes	Q	Non-ribosomal peptide synthetase modules and related proteins	bacA1	-	-	ko:K16123,ko:K16124	ko01054,map01054	-	-	-	ko00000,ko00001,ko01008	-	-	-	AMP-binding,AMP-binding_C,Condensation,PP-binding,Thioesterase
+probable_4'-phosphopantetheinyl_transferase	358681.BBR47_27920	5.06e-168	469.0	COG2091@1|root,COG2091@2|Bacteria,1VEYZ@1239|Firmicutes,4HIVV@91061|Bacilli,26Y6T@186822|Paenibacillaceae	1239|Firmicutes	H	Belongs to the P-Pant transferase superfamily	sfp	-	-	ko:K06133	ko00770,map00770	-	R01625	RC00002	ko00000,ko00001,ko01000	-	-	-	ACPS
+putative_type_II_thioesterase	358681.BBR47_27930	1.34e-178	496.0	COG3208@1|root,COG3208@2|Bacteria,1V3KR@1239|Firmicutes,4HHC8@91061|Bacilli,26XR6@186822|Paenibacillaceae	1239|Firmicutes	Q	thioesterase involved in non-ribosomal peptide biosynthesis	aveG	-	-	-	-	-	-	-	-	-	-	-	Thioesterase
+## 5 queries scanned
+## Total time (seconds): 2.8018887042999268
+## Rate: 1.78 q/s

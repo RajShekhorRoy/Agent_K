@@ -1,0 +1,17 @@
+## Thu Aug  6 13:49:11 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001895_r_5_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001895_r_5_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0001895_r_5_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0001895_r_5_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_pmuymlrb' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+alpha/beta_hydrolase	1463895.JODA01000032_gene2728	1.67e-129	377.0	31	311	7	287	66.9	90.4	97.9
+cyclase	1463841.JOIR01000032_gene6769	2.08e-160	457.0	1	318	1	317	72.1	100.0	100.0
+ketoacyl_reductase	1463841.JOIR01000032_gene6770	1.75e-161	455.0	1	262	1	261	87.4	100.0	100.0
+actinorhodin_polyketide_synthase	1463841.JOIR01000032_gene6771	1.19e-41	138.0	1	88	1	88	81.8	100.0	100.0
+ketosynthase_chain-length_factor	1123321.KB905813_gene1579	6.25e-232	644.0	1	397	1	397	82.9	100.0	100.0
+beta-ACP_synthase	1463841.JOIR01000032_gene6773	1.16e-271	747.0	1	417	6	422	91.1	99.8	98.6
+MBL_fold_metallo-hydrolase	1906.SFRA_06085	7.28e-119	351.0	7	308	7	311	57.4	98.1	98.1
+hypothetical_protein	1463857.JOFZ01000008_gene388	2.99e-117	371.0	37	542	10	526	45.1	91.3	67.7
+## 8 queries scanned
+## Total time (seconds): 0.01715707778930664
+## Rate: 466.28 q/s

@@ -1,0 +1,14 @@
+putative_o-succinylbenzoate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00130/C05817/R04031/C00885/R01717//image1x
+putative_1-deoxy-D-xylulose-5-phosphate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00900/R05636/C00353/C11437/C00341/C00013/R09248/R01658/R02003/C00011/C00448/C04146/R02061//image1x
+putative_1-deoxy-D-xylulose-5-phosphate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00730/R05636/C11437/C00011//image1x
+putative_2,3-dihydro-2,3-dihydroxy_benzoate_dehydrogenase : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C00080/C00885/C00004/C00196/R01717/R01505//image1x
+putative_isochorismate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00130/C05817/R04031/C00885/R01717//image1x
+putative_isochorismate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C00080/C00885/C00004/C00196/R01717/R01505//image1x
+octaprenyl_diphosphate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00900/R05636/C00353/C11437/C00341/C00013/R09248/R01658/R02003/C00011/C00448/C04146/R02061//image1x
+putative_tetraterpene_cyclase : https://www.kegg.jp/kegg-bin/show_pathway?map00909/R07322/C06310/R07323/C06309//image1x
+geranylgeranyl_diphosphate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00900/R05636/C00353/C11437/C00341/C00013/R09248/R01658/R02003/C00011/C00448/C04146/R02061//image1x
+putative_glutamyl-tRNA_amidotransferase_subunit_A : https://www.kegg.jp/kegg-bin/show_pathway?map00360/R02540/C07086/C00014/R03096/C00954/C00014/R03180/C01035/C00014/R03909/C00060/C00014/R05551/C01659/C00001/R05590/C00180/C00014//image1x
+putative_glutamyl-tRNA_amidotransferase_subunit_A : https://www.kegg.jp/kegg-bin/show_pathway?map00627/R02540/C07086/C00014/R03096/C00954/C00014/R03180/C01035/C00014/R03909/C00060/C00014/R05551/C01659/C00001/R05590/C00180/C00014//image1x
+putative_glutamyl-tRNA_amidotransferase_subunit_A : https://www.kegg.jp/kegg-bin/show_pathway?map00643/R02540/C07086/C00014/R03096/C00954/C00014/R03180/C01035/C00014/R03909/C00060/C00014/R05551/C01659/C00001/R05590/C00180/C00014//image1x
+putative_glutamyl-tRNA_amidotransferase_subunit_A : https://www.kegg.jp/kegg-bin/show_pathway?map00380/R02540/C07086/C00014/R03096/C00954/C00014/R03180/C01035/C00014/R03909/C00060/C00014/R05551/C01659/C00001/R05590/C00180/C00014//image1x
+putative_glutamyl-tRNA_amidotransferase_subunit_A : https://www.kegg.jp/kegg-bin/show_pathway?map00330/R02540/C07086/C00014/R03096/C00954/C00014/R03180/C01035/C00014/R03909/C00060/C00014/R05551/C01659/C00001/R05590/C00180/C00014//image1x

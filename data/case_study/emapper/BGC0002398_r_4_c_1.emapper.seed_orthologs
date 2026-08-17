@@ -1,0 +1,11 @@
+## Thu Aug  6 13:23:52 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0002398_r_4_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0002398_r_4_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0002398_r_4_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0002398_r_4_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_zf1xfgzj' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+Terpenoid_cyclases/Protein_prenyltransferases_superfamily_protein	3702.AT3G29410.1	0.0	997.0	1	498	106	603	100.0	100.0	82.6
+Terpenoid_synthases_superfamily_protein	3702.AT3G29430.1	3.36e-248	682.0	1	357	1	357	100.0	100.0	100.0
+## 2 queries scanned
+## Total time (seconds): 0.030347585678100586
+## Rate: 65.90 q/s

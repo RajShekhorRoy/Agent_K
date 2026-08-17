@@ -1,0 +1,18 @@
+## Thu Aug  6 12:36:27 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0002000_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0002000_r_1_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0002000_r_1_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0002000_r_1_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_kzirf65r' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+TcmI_family_type_II_polyketide_cyclase	1463841.JOIR01000032_gene6779	1.53e-122	353.0	1	216	3	218	77.8	99.5	98.6
+cytochrome_P450	1463841.JOIR01000032_gene6777	1.17e-259	712.0	17	382	1	366	98.9	95.8	100.0
+TcmI_family_type_II_polyketide_cyclase	1463841.JOIR01000032_gene6774	3e-68	210.0	1	110	88	197	89.1	100.0	55.8
+beta-ketoacyl-[acyl-carrier-protein]_synthase_family_protein	1463841.JOIR01000032_gene6773	1.58e-284	780.0	1	422	1	422	94.1	99.8	99.8
+ketosynthase_chain-length_factor	1463841.JOIR01000032_gene6772	9.36e-256	704.0	7	398	1	392	92.6	98.5	100.0
+acyl_carrier_protein	1463841.JOIR01000032_gene6771	2.51e-43	142.0	1	88	1	88	84.1	100.0	100.0
+3-oxoacyl-ACP_reductase_FabG	1463841.JOIR01000032_gene6770	2.03e-178	498.0	1	261	1	261	98.1	100.0	100.0
+aromatase/cyclase	1463841.JOIR01000032_gene6769	2.34e-197	550.0	1	321	1	317	87.5	100.0	100.0
+alpha/beta_fold_hydrolase	1463841.JOIR01000032_gene6768	5.31e-176	495.0	1	298	1	294	82.9	98.0	98.3
+## 9 queries scanned
+## Total time (seconds): 0.02859640121459961
+## Rate: 314.72 q/s

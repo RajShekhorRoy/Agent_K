@@ -1,0 +1,12 @@
+## Thu Aug  6 13:27:01 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000630_r_4_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000630_r_4_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+lycopene_cyclase	1569209.BBPH01000027_gene3308	9.53e-265	726.0	COG0654@1|root,COG0654@2|Bacteria,1N8DE@1224|Proteobacteria,2TU88@28211|Alphaproteobacteria,2PW8I@265|Paracoccus	28211|Alphaproteobacteria	CH	Lycopene cyclase protein	crtY	-	5.5.1.19	ko:K06443	ko00906,ko01100,ko01110,map00906,map01100,map01110	M00097	R03824,R04801,R05341,R06962,R07856	RC01004,RC01964	ko00000,ko00001,ko00002,ko01000	-	-	-	Lycopene_cycl
+phytoene_desaturase	1569209.BBPH01000027_gene3307	0.0	977.0	COG1233@1|root,COG1233@2|Bacteria,1MV2R@1224|Proteobacteria,2TSR0@28211|Alphaproteobacteria,2PUNT@265|Paracoccus	28211|Alphaproteobacteria	Q	Flavin containing amine oxidoreductase	crtI	-	1.3.99.26,1.3.99.28,1.3.99.29,1.3.99.31,5.2.1.13	ko:K09835,ko:K10027	ko00906,ko01100,ko01110,map00906,map01100,map01110	M00097	R04787,R04798,R04800,R07512,R09691,R09692	RC01214,RC01960,RC02088,RC02605	ko00000,ko00001,ko00002,ko01000	-	-	-	Amino_oxidase
+phytoene_synthase	1569209.BBPH01000027_gene3306	6.24e-215	593.0	COG1562@1|root,COG1562@2|Bacteria,1MX4W@1224|Proteobacteria,2TTI0@28211|Alphaproteobacteria,2PWUF@265|Paracoccus	28211|Alphaproteobacteria	I	Squalene/phytoene synthase	crtB	-	2.5.1.32,2.5.1.99	ko:K02291	ko00906,ko01062,ko01100,ko01110,map00906,map01062,map01100,map01110	M00097	R02065,R04218,R07270,R10177	RC00362,RC01101,RC02869	ko00000,ko00001,ko00002,ko01000,ko01006	-	-	-	SQS_PSY
+geranylgeranyl_diphosphate_synthase	1569209.BBPH01000027_gene3305	5.82e-194	540.0	COG0142@1|root,COG0142@2|Bacteria,1REMF@1224|Proteobacteria,2U88C@28211|Alphaproteobacteria,2PXQ2@265|Paracoccus	28211|Alphaproteobacteria	H	Polyprenyl synthetase	-	-	2.5.1.1,2.5.1.10,2.5.1.29	ko:K13789	ko00900,ko01100,ko01110,ko01130,map00900,map01100,map01110,map01130	M00364,M00366	R01658,R02003,R02061	RC00279	ko00000,ko00001,ko00002,ko01000,ko01006	-	-	-	polyprenyl_synt
+## 4 queries scanned
+## Total time (seconds): 2.6367125511169434
+## Rate: 1.52 q/s

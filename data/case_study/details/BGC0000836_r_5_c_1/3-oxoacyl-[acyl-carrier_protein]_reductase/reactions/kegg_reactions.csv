@@ -1,0 +1,13 @@
+Reaction_ID,Definition
+R04533,(3R)-3-Hydroxybutanoyl-[acyl-carrier protein] + NADP+ <=> Acetoacetyl-[acp] + NADPH + H+
+R04534,(3R)-3-Hydroxydecanoyl-[acyl-carrier protein] + NADP+ <=> 3-Oxodecanoyl-[acp] + NADPH
+R04536,(3R)-3-Hydroxyoctanoyl-[acyl-carrier protein] + NADP+ <=> 3-Oxooctanoyl-[acp] + NADPH + H+
+R04543,(3R)-3-Hydroxypalmitoyl-[acyl-carrier protein] + NADP+ <=> 3-Oxohexadecanoyl-[acp] + NADPH + H+
+R04566,(3R)-3-Hydroxytetradecanoyl-[acyl-carrier protein] + NADP+ <=> 3-Oxotetradecanoyl-[acp] + NADPH + H+
+R04953,(3R)-3-Hydroxyhexanoyl-[acyl-carrier protein] + NADP+ <=> 3-Oxohexanoyl-[acp] + NADPH + H+
+R04964,(3R)-3-Hydroxydodecanoyl-[acyl-carrier protein] + NADP+ <=> 3-Oxododecanoyl-[acp] + NADPH + H+
+R07759,3-Oxostearoyl-CoA + NADPH + H+ <=> 3-Hydroxyoctadecanoyl-CoA + NADP+
+R07763,3-Oxostearoyl-[acp] + NADPH + H+ <=> (3R)-3-Hydroxyoctadecanoyl-[acyl-carrier protein] + NADP+
+R10116,3-Ketoglutaryl-[acp] methyl ester + NADPH + H+ <=> 3-Hydroxyglutaryl-[acp] methyl ester + NADP+
+R10120,3-Ketopimeloyl-[acp] methyl ester + NADPH + H+ <=> 3-Hydroxypimeloyl-[acp] methyl ester + NADP+
+R11671,Malonyl-CoA + Acetyl-CoA <=> Dodecanoyl-[acyl-carrier protein]

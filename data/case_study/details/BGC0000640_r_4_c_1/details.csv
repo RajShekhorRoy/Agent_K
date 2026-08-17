@@ -1,0 +1,5 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+geranylgeranyl_pyrophosphate_synthase,00900,"R01658, R02003, R02061","Diphosphate, Geranyl diphosphate, Diphosphate, trans,trans-Farnesyl diphosphate, Diphosphate, Geranylgeranyl diphosphate"
+lycopene_cyclase,00906,"R03824, R04801, R05341, R06962, R07856","beta-Carotene, beta-Zeacarotene, gamma-Carotene, alpha-Carotene, 7,8-Dihydro-beta-carotene"
+phytoene_desaturase,00906,"R04787, R04798, R04800, R09691, R09692","all-trans-zeta-Carotene, Reduced acceptor, all-trans-Neurosporene, H2O, Acceptor, Lycopene, Acceptor, H2O, all-trans-Neurosporene, Reduced acceptor, all-trans-Phytofluene, Reduced acceptor"
+phytoene_synthase,"01062, 00906","R02065, R04218, R07270, R10177","Diphosphate, Prephytoene diphosphate, Diphosphate, 15-cis-Phytoene, all-trans-Phytoene, Diphosphate, 15-cis-Phytoene, Diphosphate"

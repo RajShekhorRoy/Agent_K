@@ -1,0 +1,9 @@
+## Thu Aug  6 13:39:58 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0002341_r_5_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0002341_r_5_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+Glucose-inhibited_division_protein_A	314230.DSM3645_15415	3.06e-146	429.0	COG0644@1|root,COG0644@2|Bacteria,2IX1U@203682|Planctomycetes	203682|Planctomycetes	C	COG0644 Dehydrogenases (flavoproteins)	-	-	-	-	-	-	-	-	-	-	-	-	Trp_halogenase
+## 1 queries scanned
+## Total time (seconds): 2.1638500690460205
+## Rate: 0.46 q/s

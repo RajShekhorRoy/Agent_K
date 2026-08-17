@@ -1,0 +1,6 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+beta-carotene_ketolase,00906,"R05345, R07549, R07557, R07563, R07564, R07565, R07566, R07567, R07571, R07573","Echinenone, Acceptor, H2O, 4-Ketomyxol, (3S,2'S)-4-Ketomyxol 2'-alpha-L-fucoside, Acceptor, H2O, Canthaxanthin, Acceptor, H2O, 3'-Hydroxyechinenone, Acceptor, H2O, 3-Hydroxyechinenone, Acceptor, H2O, Phoenicoxanthin, Acceptor, H2O, Phoenicoxanthin, Acceptor, H2O, Adonixanthin, Acceptor, H2O, Astaxanthin, Acceptor, H2O"
+lycopene_beta-cyclase,00906,"R03824, R04801, R05341, R06962, R07856","beta-Carotene, beta-Zeacarotene, gamma-Carotene, alpha-Carotene, 7,8-Dihydro-beta-carotene"
+phytoene_desaturase,00906,"R04787, R04798, R04800, R07512, R09691, R09692","all-trans-zeta-Carotene, Reduced acceptor, all-trans-Neurosporene, H2O, Acceptor, Lycopene, Acceptor, H2O, Lycopene, all-trans-Neurosporene, Reduced acceptor, all-trans-Phytofluene, Reduced acceptor"
+phytoene_synthase,"01062, 00906","R02065, R04218, R07270, R10177","Diphosphate, Prephytoene diphosphate, Diphosphate, 15-cis-Phytoene, all-trans-Phytoene, Diphosphate, 15-cis-Phytoene, Diphosphate"
+GGPP_synthase,00900,"R01658, R02003, R02061","Diphosphate, Geranyl diphosphate, Diphosphate, trans,trans-Farnesyl diphosphate, Diphosphate, Geranylgeranyl diphosphate"

@@ -1,0 +1,18 @@
+## Thu Aug  6 13:53:04 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001723_r_5_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001723_r_5_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0001723_r_5_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0001723_r_5_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_l60u8nno' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+oxygenase	67315.JOBD01000033_gene4254	0.0	988.0	1	495	1	495	99.6	100.0	100.0
+cyclase	67315.JOBD01000033_gene4255	6.07e-79	234.0	1	110	1	110	100.0	100.0	100.0
+keto-acyl_synthase_alpha	67315.JOBD01000033_gene4256	1.16e-302	825.0	1	423	1	423	99.5	100.0	100.0
+beta-ketoacyl_synthase	67315.JOBD01000033_gene4257	3.65e-291	795.0	1	407	1	407	100.0	100.0	100.0
+actinorhodin_polyketide_synthase	67315.JOBD01000033_gene4258	1.05e-54	171.0	1	90	1	90	100.0	100.0	100.0
+ketoacyl_reductase	67315.JOBD01000033_gene4259	6.57e-179	499.0	1	260	1	260	100.0	100.0	100.0
+cyclase	67315.JOBD01000033_gene4260	1.45e-230	634.0	1	315	1	315	100.0	100.0	100.0
+oxidoreductase	67315.JOBD01000033_gene4261	0.0	974.0	1	490	1	490	99.8	100.0	100.0
+hypothetical_protein	67315.JOBD01000033_gene4262	0.0	999.0	1	506	4	509	100.0	100.0	99.4
+## 9 queries scanned
+## Total time (seconds): 0.01985025405883789
+## Rate: 453.39 q/s

@@ -1,0 +1,5 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+isochorismate_synthase,"00130, 01053",R01717,Isochorismate
+enterobactin_synthase_subunit_E,01053,R07644,"Enterochelin, AMP, Diphosphate"
+isochorismatase,01053,"R03037, R07644","(2S,3S)-2,3-Dihydro-2,3-dihydroxybenzoate, Pyruvate, Enterochelin, AMP, Diphosphate"
+enterobactin_synthetase_component_F,01053,,

@@ -1,0 +1,5 @@
+isochorismate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00130/R01717/C00885//image1x
+isochorismate_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C05821/C00022/R07644/R03037/C00013/C00885/R01717/C00020//image1x
+enterobactin_synthase_subunit_E : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C05821/C00022/R07644/R03037/C00013/C00885/R01717/C00020//image1x
+isochorismatase : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C05821/C00022/R07644/R03037/C00013/C00885/R01717/C00020//image1x
+enterobactin_synthetase_component_F : https://www.kegg.jp/kegg-bin/show_pathway?map01053/C04171/C05821/C00022/R07644/R03037/C00013/C00885/R01717/C00020//image1x

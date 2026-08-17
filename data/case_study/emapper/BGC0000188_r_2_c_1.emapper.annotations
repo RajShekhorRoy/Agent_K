@@ -1,0 +1,14 @@
+## Thu Aug  6 13:03:04 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000188_r_2_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000188_r_2_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+polyketide_synthase-related_protein	533247.CRD_02157	0.0	2482.0	COG0156@1|root,COG0454@1|root,COG0156@2|Bacteria,COG0456@2|Bacteria	2|Bacteria	K	acetyltransferase	-	-	2.3.1.29,2.3.1.47	ko:K00639,ko:K00652,ko:K13614,ko:K15674	ko00260,ko00780,ko01100,map00260,map00780,map01100	M00123,M00573,M00577	R00371,R03210,R10124	RC00004,RC00039,RC00394,RC02725	ko00000,ko00001,ko00002,ko01000,ko01004,ko01007,ko01008	-	-	-	Acetyltransf_1,Aminotran_1_2,DinB_2,EAL,GGDEF,KAsynt_C_assoc,Ketoacyl-synt_C,PAS_4,PP-binding,ketoacyl-synt
+amidinotransferase	533247.CRD_02154	4.72e-290	790.0	COG1834@1|root,COG1834@2|Bacteria,1G48J@1117|Cyanobacteria,1HN0E@1161|Nostocales	2|Bacteria	E	amidinotransferase	-	-	2.1.4.1	ko:K00613	ko00260,ko00330,ko01100,map00260,map00330,map01100	M00047	R00565,R01989	RC00024,RC02749	ko00000,ko00001,ko00002,ko01000	-	-	-	Amidinotransf
+NodU/CmcH-related_carbamoyltransferase	533247.CRD_02152	0.0	1237.0	COG2192@1|root,COG2192@2|Bacteria,1G1FV@1117|Cyanobacteria,1HS2E@1161|Nostocales	2|Bacteria	O	Carbamoyltransferase C-terminus	nolO	-	-	ko:K00612	-	-	-	-	ko00000,ko01000	-	-	-	Carbam_trans_C,Carbam_trans_N
+sulfotransferase	203124.Tery_4094	3.66e-57	190.0	2C3PP@1|root,2Z954@2|Bacteria,1G4Y7@1117|Cyanobacteria,1H94H@1150|Oscillatoriales	2|Bacteria	-	-	-	-	-	-	-	-	-	-	-	-	-	-	-
+short-chain_alcohol_dehydrogenase	533247.CRD_02146	2.36e-164	461.0	COG4221@1|root,COG4221@2|Bacteria,1G156@1117|Cyanobacteria,1HKAR@1161|Nostocales	2|Bacteria	M	Belongs to the short-chain dehydrogenases reductases (SDR) family	cad	-	-	ko:K12677	ko00331,ko01130,map00331,map01130	-	R05471	RC00649	ko00000,ko00001	-	-	-	adh_short
+phytanoyl-CoA_dioxygenase	1123360.thalar_00538	1.74e-08	62.0	COG5285@1|root,COG5285@2|Bacteria,1MWD5@1224|Proteobacteria,2TWPJ@28211|Alphaproteobacteria	28211|Alphaproteobacteria	Q	Protein involved in biosynthesis of mitomycin antibiotics polyketide fumonisin	-	-	-	-	-	-	-	-	-	-	-	-	PhyH
+## 6 queries scanned
+## Total time (seconds): 2.6861050128936768
+## Rate: 2.23 q/s

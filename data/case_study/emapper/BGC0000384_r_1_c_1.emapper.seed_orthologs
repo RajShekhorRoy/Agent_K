@@ -1,0 +1,13 @@
+## Thu Aug  6 12:56:19 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000384_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000384_r_1_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0000384_r_1_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0000384_r_1_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_xlw0tss4' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+LtxA	1463936.JOJI01000007_gene3957	0.0	1632.0	10	2063	5	2028	44.2	82.8	56.8
+LtxB	1246995.AFR_28005	2.43e-112	343.0	73	460	13	402	43.1	84.3	97.0
+LtxC	1179773.BN6_30180	2.4e-33	135.0	38	387	22	366	30.6	89.7	92.0
+LtxD	1894.JOER01000040_gene1414	2.01e-80	248.0	4	245	5	247	56.8	98.4	98.0
+## 4 queries scanned
+## Total time (seconds): 0.02568507194519043
+## Rate: 155.73 q/s

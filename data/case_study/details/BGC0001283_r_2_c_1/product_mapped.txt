@@ -1,0 +1,5 @@
+thioredoxin-disulfide_reductase : https://www.kegg.jp/kegg-bin/show_pathway?map05418/R02016/C00343/C00005/C00080/R03596/C05684/C00005/C00080/R09372/C00006/C00001/C05703//image1x
+thioredoxin-disulfide_reductase : https://www.kegg.jp/kegg-bin/show_pathway?map04621/R02016/C00343/C00005/C00080/R03596/C05684/C00005/C00080/R09372/C00006/C00001/C05703//image1x
+thioredoxin-disulfide_reductase : https://www.kegg.jp/kegg-bin/show_pathway?map00450/R02016/C00343/C00005/C00080/R03596/C05684/C00005/C00080/R09372/C00006/C00001/C05703//image1x
+type_I_polyketide_synthase : https://www.kegg.jp/kegg-bin/show_pathway?map00333/R11664/C21573/C00001/C00011/C00010//image1x
+phosphonopyruvate_decarboxylase : https://www.kegg.jp/kegg-bin/show_pathway?map00440/R04053/C03167/C00011//image1x

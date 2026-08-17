@@ -1,0 +1,4 @@
+Reaction_ID,Definition
+R00371,Acetyl-CoA + Glycine <=> CoA + L-2-Amino-3-oxobutanoic acid
+R03210,Pimeloyl-CoA + L-Alanine <=> 8-Amino-7-oxononanoate + CoA + CO2
+R10124,Pimeloyl-[acyl-carrier protein] + L-Alanine <=> 8-Amino-7-oxononanoate + Acyl-carrier protein + CO2

@@ -1,0 +1,13 @@
+## Thu Aug  6 13:27:01 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000630_r_4_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000630_r_4_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0000630_r_4_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0000630_r_4_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_xez1r7iu' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+lycopene_cyclase	1569209.BBPH01000027_gene3308	9.53e-265	726.0	1	386	1	386	93.8	100.0	100.0
+phytoene_desaturase	1569209.BBPH01000027_gene3307	0.0	977.0	1	501	1	501	96.4	100.0	100.0
+phytoene_synthase	1569209.BBPH01000027_gene3306	6.24e-215	593.0	1	304	1	304	96.7	100.0	100.0
+geranylgeranyl_diphosphate_synthase	1569209.BBPH01000027_gene3305	5.82e-194	540.0	1	291	1	291	97.9	99.3	99.3
+## 4 queries scanned
+## Total time (seconds): 0.0484769344329834
+## Rate: 82.51 q/s

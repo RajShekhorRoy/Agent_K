@@ -1,0 +1,5 @@
+polyketide_synthase-related_protein : https://www.kegg.jp/kegg-bin/show_pathway?map00780/R00371/C00010/C03508/R03210/C01092/C00010/C00011/R10124/C01092/C00229/C00011//image1x
+polyketide_synthase-related_protein : https://www.kegg.jp/kegg-bin/show_pathway?map00260/R00565/R01989/C03508/C01092/R10124/C00229/C01035/C00581/C00011/R00371/R03210/C00077/C00010//image1x
+amidinotransferase : https://www.kegg.jp/kegg-bin/show_pathway?map00330/R00565/C00077/C00581/R01989/C00077/C01035//image1x
+amidinotransferase : https://www.kegg.jp/kegg-bin/show_pathway?map00260/R00565/R01989/C03508/C01092/R10124/C00229/C01035/C00581/C00011/R00371/R03210/C00077/C00010//image1x
+short-chain_alcohol_dehydrogenase : https://www.kegg.jp/kegg-bin/show_pathway?map00331/R05471/C06662/C00006//image1x

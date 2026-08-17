@@ -1,0 +1,20 @@
+## Thu Aug  6 13:45:10 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0002008_r_5_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0002008_r_5_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0002008_r_5_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0002008_r_5_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_73xkv0oa' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+class_I_SAM-dependent_methyltransferase	598467.BrE312_4451	6.48e-181	512.0	5	357	3	355	69.4	98.9	99.4
+beta-ketoacyl_synthase_chain_length_factor	199310.c1202	2.93e-95	286.0	1	239	9	247	59.6	100.0	96.4
+1-acyl-sn-glycerol-3-phosphate_acyltransferase	1045856.EcWSU1_04261	6.81e-107	317.0	7	260	8	261	62.7	96.6	91.7
+phosphopantetheine-binding_protein	716541.ECL_04842	7.95e-41	135.0	1	85	1	85	80.0	100.0	100.0
+acyl_carrier_protein	1214065.BAGV01000077_gene1273	1.07e-37	127.0	2	81	1	80	83.8	96.4	97.6
+AMP-binding_protein	598467.BrE312_4457	1.41e-152	448.0	2	460	4	449	51.5	99.6	99.1
+glycosyltransferase_family_2_protein	1082705.JIBP01000004_gene1445	1.7e-279	779.0	3	564	1	559	66.3	98.4	98.2
+thioesterase_family_protein	399742.Ent638_3892	2.38e-79	237.0	1	140	1	140	80.0	100.0	100.0
+beta-ketoacyl-[acyl-carrier-protein]_synthase_family_protein	693444.D782_0842	2.08e-188	533.0	1	389	1	381	68.6	99.5	99.2
+3-ketoacyl-ACP_reductase_FabG2	1028307.EAE_05655	1.85e-140	400.0	1	243	1	243	83.1	100.0	100.0
+beta-ketoacyl-ACP_synthase	1166016.W5S_4768	1.09e-245	681.0	13	418	2	407	81.8	96.9	99.5
+## 11 queries scanned
+## Total time (seconds): 0.015385866165161133
+## Rate: 714.94 q/s

@@ -1,0 +1,6 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+tyrocidine_synthetase_I,01054,,
+tyrocidine_synthetase_II,01054,,
+tyrocidine_synthetase_III,01054,,
+probable_4'-phosphopantetheinyl_transferase,00770,R01625,"Adenosine 3',5'-bisphosphate, Acyl-carrier protein"
+putative_type_II_thioesterase,,,
