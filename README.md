@@ -2,6 +2,7 @@
 
 **An Agent-Orchestrated Pipeline for Mapping Genes to Biosynthetic Pathway towards Metabolite Discovery**
 
+DOI: 10.5281/zenodo.23421236
 ## System Overview
 <img src="assets/Figure1.png" width="800px">
 
