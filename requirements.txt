@@ -1,3 +1,13 @@
-streamlit>=1.36.0
-requests>=2.31.0
-pydantic>=2.7.0
+biopython==1.81
+numpy==2.4.1
+pandas==2.3.3
+streamlit==1.54.0
+altair==5.5.0
+pyarrow==16.1.0
+pillow==10.4.0
+requests==2.31.0
+PyYAML==6.0.3
+pydantic==2.7.0
+psutil==7.2.2
+GitPython==3.1.46
+beautifulsoup4==4.14.3

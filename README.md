@@ -36,6 +36,8 @@ Before running **Agent_K**, install the following external tools:
 |------|---------|--------------|
 | **antiSMASH** | Biosynthetic gene cluster prediction | https://github.com/antismash/antismash |
 | **eggNOG-mapper** | Functional annotation | https://github.com/eggnogdb/eggnog-mapper |
+| **Ollama (v0.32.5)** | Local LLM inference and agent orchestration| https://ollama.com/download|
+| **Qwen2.5-7B-Instruct** |LLM for task planning, tool selection, and user interaction |ollama pull qwen2.5:7b-instruct|
 
 > **Note:** Please follow the official installation instructions for each tool, including any required databases and dependencies.
 
@@ -50,6 +52,15 @@ cd Agent_K
 
 ```bash
 pip install -r requirements.txt
+```
+
+### Install the required language model
+```
+ollama pull qwen2.5:7b-instruct
+```
+### Verify model installation
+```
+ollama list
 ```
 
 ## 🚀 Running Agent_K
