@@ -1,0 +1,9 @@
+## Thu Aug  6 12:31:35 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000043_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000043_r_1_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+polyketide_synthase	489825.LYNGBM3L_74580	0.0	4299.0	COG3321@1|root,COG3321@2|Bacteria,1FZXE@1117|Cyanobacteria,1H927@1150|Oscillatoriales	2|Bacteria	Q	Acyl transferase domain in polyketide synthase (PKS) enzymes.	-	-	-	-	-	-	-	-	-	-	-	-	ADH_N,ADH_zinc_N_2,Acyl_transf_1,Hydrolase_4,KAsynt_C_assoc,KR,Ketoacyl-synt_C,Methyltransf_12,PP-binding,PS-DH,Sulfotransfer_3,ketoacyl-synt
+## 1 queries scanned
+## Total time (seconds): 1.1166341304779053
+## Rate: 0.90 q/s

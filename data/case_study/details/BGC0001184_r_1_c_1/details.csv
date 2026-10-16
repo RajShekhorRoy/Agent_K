@@ -1,0 +1,4 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+YwfG,"00300, 00270","R07396, R07613, R11068","L-Methionine, 2-Oxoglutarate, 2,3,4,5-Tetrahydrodipicolinate, L-Glutamate, H2O, L-Dihydroanticapsin, Phenylpyruvate"
+BacD,,R11064,"Bacilysin, Orthophosphate, ADP"
+BacC,,R10917,"L-Anticapsin, NADH, H+"

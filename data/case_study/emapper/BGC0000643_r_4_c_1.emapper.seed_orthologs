@@ -1,0 +1,14 @@
+## Thu Aug  6 13:29:04 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000643_r_4_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000643_r_4_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0000643_r_4_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0000643_r_4_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_cd5kwtj1' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+geranylgeranyl_pyrophosphate_synthase	1229204.AMYY01000001_gene2887	2.86e-192	536.0	1	298	1	298	94.0	100.0	100.0
+phytoene_synthase	1229204.AMYY01000001_gene2890	7.72e-228	627.0	1	310	1	310	99.0	100.0	100.0
+phytoene_desaturase	1229204.AMYY01000001_gene2891	0.0	979.0	2	494	1	493	98.8	99.8	100.0
+lycopene_cyclase	1229204.AMYY01000001_gene2892	2.45e-268	736.0	1	388	1	388	96.1	100.0	100.0
+beta-carotene_ketolase	1229204.AMYY01000001_gene2893	1.11e-166	466.0	7	241	1	235	95.7	97.5	100.0
+## 5 queries scanned
+## Total time (seconds): 0.02431488037109375
+## Rate: 205.64 q/s

@@ -1,0 +1,2 @@
+alpha-amylase : https://www.kegg.jp/kegg-bin/show_pathway?map04973/R02108/C00721/C00369/R02112/C00721/C00208/R11262/C00208//image1x
+alpha-amylase : https://www.kegg.jp/kegg-bin/show_pathway?map00500/R02108/C00721/C00369/R02112/C00721/C00208/R11262/C00208//image1x

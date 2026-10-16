@@ -1,0 +1,4 @@
+tyrocidine_synthetase_I : https://www.kegg.jp/kegg-bin/show_pathway?map01054//image1x
+tyrocidine_synthetase_II : https://www.kegg.jp/kegg-bin/show_pathway?map01054//image1x
+tyrocidine_synthetase_III : https://www.kegg.jp/kegg-bin/show_pathway?map01054//image1x
+probable_4'-phosphopantetheinyl_transferase : https://www.kegg.jp/kegg-bin/show_pathway?map00770/R01625/C00054/C00229//image1x

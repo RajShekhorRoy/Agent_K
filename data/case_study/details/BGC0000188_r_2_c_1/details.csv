@@ -1,0 +1,7 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+polyketide_synthase-related_protein,"00780, 00260","R00371, R03210, R10124","CoA, L-2-Amino-3-oxobutanoic acid, 8-Amino-7-oxononanoate, CoA, CO2, 8-Amino-7-oxononanoate, Acyl-carrier protein, CO2"
+amidinotransferase,"00330, 00260","R00565, R01989","L-Ornithine, Guanidinoacetate, L-Ornithine, 4-Guanidinobutanoate"
+NodU/CmcH-related_carbamoyltransferase,,,
+sulfotransferase,,,
+short-chain_alcohol_dehydrogenase,00331,R05471,"Clavulanic acid, NADP+"
+phytanoyl-CoA_dioxygenase,,,

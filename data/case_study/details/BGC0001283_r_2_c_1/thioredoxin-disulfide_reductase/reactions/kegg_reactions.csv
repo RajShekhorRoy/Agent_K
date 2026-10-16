@@ -1,0 +1,4 @@
+Reaction_ID,Definition
+R02016,Thioredoxin + NADP+ <=> Thioredoxin disulfide + NADPH + H+
+R03596,Hydrogen selenide + 3 NADP+ + 3 H2O <=> Selenite + 3 NADPH + 5 H+
+R09372,2 NADPH + 2 H+ + Methylselenic acid <=> 2 NADP+ + 2 H2O + Methaneselenol

@@ -1,0 +1,16 @@
+## Thu Aug  6 13:09:06 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001283_r_2_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001283_r_2_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0001283_r_2_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0001283_r_2_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_th8z41r9' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+thioredoxin-disulfide_reductase	100226.SCO6834	2.82e-198	553.0	1	312	1	312	89.7	94.5	95.7
+SDR_family_NAD(P)-dependent_oxidoreductase	100226.SCO6829	5.59e-175	489.0	1	259	1	259	97.7	100.0	100.0
+NAD(P)-binding_domain-containing_protein	100226.SCO6828	0.0	940.0	1	493	1	493	98.4	100.0	100.0
+type_I_polyketide_synthase	100226.SCO6827	0.0	4301.0	1	2358	1	2358	96.3	100.0	100.0
+ketoacyl-ACP_synthase_III_family_protein	100226.SCO6826	1.97e-255	699.0	1	346	1	346	100.0	100.0	100.0
+phosphonopyruvate_decarboxylase	100226.SCO6824	1.32e-250	689.0	1	367	1	367	98.4	100.0	100.0
+molybdopterin-dependent_oxidoreductase	66897.DJ64_24520	0.0	1566.0	1	840	1	840	89.4	100.0	100.0
+## 7 queries scanned
+## Total time (seconds): 0.031517982482910156
+## Rate: 222.10 q/s

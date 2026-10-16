@@ -1,0 +1,10 @@
+## Thu Aug  6 13:04:35 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001650_r_2_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001650_r_2_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+PEP_phosphonomutase	84531.JMTZ01000022_gene4170	1.8e-134	387.0	COG2513@1|root,COG2513@2|Bacteria,1R3SD@1224|Proteobacteria,1S2C1@1236|Gammaproteobacteria,1X70C@135614|Xanthomonadales	1236|Gammaproteobacteria	G	COG2513 PEP phosphonomutase and related enzymes	-	-	-	-	-	-	-	-	-	-	-	-	PEP_mutase
+nonribosomal_peptide_synthase	1500893.JQNB01000001_gene2184	0.0	2860.0	COG1020@1|root,COG1020@2|Bacteria,1QK4F@1224|Proteobacteria,1RPAG@1236|Gammaproteobacteria,1XCC5@135614|Xanthomonadales	1236|Gammaproteobacteria	Q	Phosphopantetheine attachment site	-	-	-	-	-	-	-	-	-	-	-	-	AMP-binding,AMP-binding_C,Condensation,Nitroreductase,PP-binding,Thioesterase
+## 2 queries scanned
+## Total time (seconds): 1.8739101886749268
+## Rate: 1.07 q/s

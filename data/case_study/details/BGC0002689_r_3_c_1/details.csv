@@ -1,0 +1,9 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+"putative_enterobactin_synthetase_component_A_(2,3-dihydro-2,3-dihydroxybenzoate_dehydrogenase)",01053,R01505,"2,3-Dihydroxybenzoate, NADH, H+"
+putative_enterobactin_synthetase_component_F,"01053, 01054",R07644,"Enterochelin, AMP, Diphosphate"
+putative_phosphopantetheine_attachment_site_protein,,,
+putative_hydrolase,"02024, 00405, 01053","R03037, R07644, R11463","(2S,3S)-2,3-Dihydro-2,3-dihydroxybenzoate, Pyruvate, Enterochelin, AMP, Diphosphate, (5S,6S)-6-Amino-5-hydroxycyclohexa-1,3-diene-1-carboxylate, Pyruvate"
+"putative_siderophore_specific_2,3-dihydroxybenzoate-AMP_ligase",01053,R07644,"Enterochelin, AMP, Diphosphate"
+putative_enterobactin_synthetase_component_C_(isochorismate_synthase),"00130, 01053",R01717,Isochorismate
+"putative_monooxygenase,_luciferase-like",,,
+putative_flavin_reductase,,,

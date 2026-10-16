@@ -1,0 +1,6 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+serine/threonine_protein_kinase,,,
+alpha-amylase,"04973, 00500","R02108, R02112, R11262","Dextrin, Starch, Dextrin, Maltose, Maltose"
+enoyl-CoA_hydratase,,,
+3-oxoacyl-[acyl-carrier-protein]_synthase,,,
+short-chain_dehydrogenase/reductase,,,

@@ -1,0 +1,12 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+class_I_SAM-dependent_methyltransferase,,,
+beta-ketoacyl_synthase_chain_length_factor,,,
+1-acyl-sn-glycerol-3-phosphate_acyltransferase,,,
+phosphopantetheine-binding_protein,,,
+acyl_carrier_protein,,,
+AMP-binding_protein,,,
+glycosyltransferase_family_2_protein,,,
+thioesterase_family_protein,,,
+beta-ketoacyl-[acyl-carrier-protein]_synthase_family_protein,00780,"R04355, R04726, R04952, R04957, R04960, R04963, R04968, R07762, R10115, R10119","Acetoacetyl-[acp], CO2, Acyl-carrier protein, 3-Oxotetradecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxohexanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxooctanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxodecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxododecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxohexadecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxostearoyl-[acp], Acyl-carrier protein, CO2, 3-Ketoglutaryl-[acp] methyl ester, CO2, Acyl-carrier protein, 3-Ketopimeloyl-[acp] methyl ester, CO2, Acyl-carrier protein"
+3-ketoacyl-ACP_reductase_FabG2,"01040, 00780, 00333","R04533, R04534, R04536, R04543, R04566, R04953, R04964, R07759, R07763, R10116, R10120, R11671","Acetoacetyl-[acp], NADPH, H+, 3-Oxodecanoyl-[acp], NADPH, 3-Oxooctanoyl-[acp], NADPH, H+, 3-Oxohexadecanoyl-[acp], NADPH, H+, 3-Oxotetradecanoyl-[acp], NADPH, H+, 3-Oxohexanoyl-[acp], NADPH, H+, 3-Oxododecanoyl-[acp], NADPH, H+, 3-Hydroxyoctadecanoyl-CoA, NADP+, (3R)-3-Hydroxyoctadecanoyl-[acyl-carrier protein], NADP+, 3-Hydroxyglutaryl-[acp] methyl ester, NADP+, 3-Hydroxypimeloyl-[acp] methyl ester, NADP+, Dodecanoyl-[acyl-carrier protein]"
+beta-ketoacyl-ACP_synthase,00780,"R04355, R04726, R04952, R04957, R04960, R04963, R04968, R07762, R10115, R10119","Acetoacetyl-[acp], CO2, Acyl-carrier protein, 3-Oxotetradecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxohexanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxooctanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxodecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxododecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxohexadecanoyl-[acp], CO2, Acyl-carrier protein, 3-Oxostearoyl-[acp], Acyl-carrier protein, CO2, 3-Ketoglutaryl-[acp] methyl ester, CO2, Acyl-carrier protein, 3-Ketopimeloyl-[acp] methyl ester, CO2, Acyl-carrier protein"

@@ -1,0 +1,12 @@
+## Thu Aug  6 12:32:18 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001184_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001184_r_1_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0001184_r_1_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0001184_r_1_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_0n_dfulo' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+YwfG	326423.RBAM_034880	1.33e-298	813.0	1	399	1	399	100.0	100.0	100.0
+BacD	326423.RBAM_034900	0.0	927.0	1	472	1	472	100.0	100.0	100.0
+BacC	326423.RBAM_034910	7.72e-179	498.0	1	253	1	253	100.0	100.0	100.0
+## 3 queries scanned
+## Total time (seconds): 0.028748035430908203
+## Rate: 104.35 q/s

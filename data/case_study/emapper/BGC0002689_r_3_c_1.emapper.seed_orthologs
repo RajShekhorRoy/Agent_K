@@ -1,0 +1,17 @@
+## Thu Aug  6 13:10:54 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0002689_r_3_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0002689_r_3_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0002689_r_3_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0002689_r_3_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_nuzhk5np' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+putative_enterobactin_synthetase_component_A_(2,3-dihydro-2,3-dihydroxybenzoate_dehydrogenase)	522373.Smlt2817	7.36e-172	480.0	1	252	1	252	100.0	100.0	100.0
+putative_enterobactin_synthetase_component_F	522373.Smlt2818	0.0	2530.0	1	1296	1	1296	100.0	100.0	100.0
+putative_phosphopantetheine_attachment_site_protein	522373.Smlt2819	1.35e-55	173.0	1	86	1	86	100.0	100.0	100.0
+putative_hydrolase	522373.Smlt2820	3.19e-152	427.0	1	210	1	210	100.0	100.0	100.0
+putative_siderophore_specific_2,3-dihydroxybenzoate-AMP_ligase	522373.Smlt2821	0.0	1097.0	1	550	1	550	100.0	100.0	100.0
+putative_enterobactin_synthetase_component_C_(isochorismate_synthase)	522373.Smlt2822	1.68e-275	754.0	1	397	1	397	100.0	100.0	100.0
+putative_monooxygenase,_luciferase-like	522373.Smlt2825	7.36e-222	612.0	1	311	1	311	100.0	100.0	100.0
+putative_flavin_reductase	522373.Smlt2829	7.95e-139	392.0	1	191	1	191	100.0	100.0	100.0
+## 8 queries scanned
+## Total time (seconds): 0.02898120880126953
+## Rate: 276.04 q/s

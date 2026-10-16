@@ -1,0 +1,6 @@
+Reaction_ID,Definition
+R06656,Tetrangomycin <=> Rabelomycin
+R09341,UWM6 <=> Rabelomycin
+R09342,"UWM6 <=> 2,3-Dehydro-UWM6 + H2O"
+R09343,"2,3-Dehydro-UWM6 <=> Dehydrorabelomycin"
+R09346,Rabelomycin <=> 11-Deoxylandomycinone

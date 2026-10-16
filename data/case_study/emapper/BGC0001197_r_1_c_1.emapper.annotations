@@ -1,0 +1,13 @@
+## Thu Aug  6 12:33:42 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001197_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001197_r_1_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+Polyketide_synthesis_cyclase	298653.Franean1_2389	7.81e-89	260.0	2C9N8@1|root,332TT@2|Bacteria,2IKVK@201174|Actinobacteria,4EWDY@85013|Frankiales	201174|Actinobacteria	S	Polyketide synthesis cyclase	-	-	-	ko:K14671	-	-	-	-	ko00000,ko01008	-	-	-	Cyclase_polyket
+putative_actinorhodin_polyketide_synthase_acyl_carrier_protein_(ACP)_(ActI_ORF3)	298653.Franean1_2390	2.09e-54	170.0	COG0236@1|root,COG0236@2|Bacteria,2GYPB@201174|Actinobacteria	201174|Actinobacteria	IQ	Phosphopantetheine attachment site	-	-	-	ko:K14669	-	-	-	-	ko00000,ko01008	-	-	-	PP-binding
+cyclase/dehydrase	298653.Franean1_2391	1.8e-115	330.0	COG2867@1|root,COG2867@2|Bacteria,2IHW8@201174|Actinobacteria,4EVGC@85013|Frankiales	201174|Actinobacteria	I	Cyclase dehydrase	-	-	-	ko:K14670	-	-	-	-	ko00000,ko01008	-	-	-	Cupin_2,Polyketide_cyc,Polyketide_cyc2
+Beta-ketoacyl_synthase	298653.Franean1_2393	0.0	887.0	COG0304@1|root,COG0304@2|Bacteria,2GIY4@201174|Actinobacteria,4ETVW@85013|Frankiales	201174|Actinobacteria	IQ	Belongs to the beta-ketoacyl-ACP synthases family	-	-	2.3.1.179	ko:K09458,ko:K14667	ko00061,ko00780,ko01100,ko01212,map00061,map00780,map01100,map01212	M00083,M00572	R04355,R04726,R04952,R04957,R04960,R04963,R04968,R07762,R10115,R10119	RC00039,RC02728,RC02729,RC02888	ko00000,ko00001,ko00002,ko01000,ko01004,ko01008	-	-	-	Ketoacyl-synt_C,ketoacyl-synt
+short-chain_dehydrogenase/reductase_SDR	298653.Franean1_2395	2.19e-165	463.0	COG1028@1|root,COG1028@2|Bacteria,2GJU1@201174|Actinobacteria,4EV0S@85013|Frankiales	201174|Actinobacteria	IQ	Short-chain dehydrogenase reductase SDR	-	-	1.1.1.100,1.1.1.47	ko:K00034,ko:K00059	ko00030,ko00061,ko00333,ko00780,ko01040,ko01100,ko01120,ko01130,ko01200,ko01212,map00030,map00061,map00333,map00780,map01040,map01100,map01120,map01130,map01200,map01212	M00083,M00572	R01520,R01521,R04533,R04534,R04536,R04543,R04566,R04953,R04964,R07759,R07763,R10116,R10120,R11671	RC00029,RC00066,RC00117	ko00000,ko00001,ko00002,ko01000,ko01004	-	-	-	adh_short_C2
+## 5 queries scanned
+## Total time (seconds): 1.2395730018615723
+## Rate: 4.03 q/s

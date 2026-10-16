@@ -1,0 +1,5 @@
+Reaction_ID,Definition
+R06426,"dTDP-3-oxo-4,6-dideoxy-D-glucose + L-Glutamate <=> dTDP-3-amino-3,4,6-trideoxy-D-glucose + 2-Oxoglutarate"
+R06631,"dTDP-3,4-dioxo-2,6-dideoxy-D-glucose + L-Glutamate <=> dTDP-3-amino-2,3,6-trideoxy-4-keto-D-glucose + 2-Oxoglutarate"
+R08928,"dTDP-3-oxo-2,6-dideoxy-D-glucose <=> dTDP-2,6-dideoxy-D-kanosamine"
+R08930,"dTDP-4-oxo-2,6-dideoxy-D-glucose + Reduced ferredoxin + H+ <=> dTDP-4-oxo-2,3,6-trideoxy-D-glucose + H2O + Oxidized ferredoxin"

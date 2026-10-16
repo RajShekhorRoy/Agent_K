@@ -1,0 +1,23 @@
+## Thu Aug  6 13:06:46 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000651_r_2_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000651_r_2_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0000651_r_2_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0000651_r_2_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_cohro2iq' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+putative_o-succinylbenzoate_synthase	471852.Tcur_2403	3.78e-135	392.0	10	290	4	288	74.0	91.2	89.3
+putative_1-deoxy-D-xylulose-5-phosphate_synthase	1122182.KB903837_gene3669	5.85e-212	612.0	1	588	42	629	55.1	98.2	92.0
+putative_glycosyl_transferase	56107.Cylst_1884	4.77e-89	283.0	1	413	1	417	37.7	99.3	97.9
+putative_2,3-dihydro-2,3-dihydroxy_benzoate_dehydrogenase	1343740.M271_03640	9.55e-87	265.0	1	257	1	259	57.9	99.6	100.0
+putative_isochorismate_synthase	479432.Sros_4053	6.73e-131	390.0	10	411	13	410	51.7	93.3	96.6
+putative_P450	709986.Deima_1929	7.66e-92	290.0	11	377	16	379	44.0	87.8	89.9
+octaprenyl_diphosphate_synthase	446462.Amir_4379	1e-62	216.0	32	339	239	539	43.5	86.3	54.0
+putative_FAD-dependent_monooxygenase	1123322.KB904663_gene4092	4.47e-73	242.0	7	400	14	407	40.9	95.9	91.4
+putative_tetraterpene_cyclase	882086.SacxiDRAFT_4227	1.23e-194	563.0	12	541	28	560	52.3	97.2	93.8
+putative_P450	67257.JODR01000007_gene3744	3.28e-96	300.0	5	403	8	408	43.6	99.0	98.0
+lmbU_and_cloE-like_protein	1394178.AWOO02000014_gene7764	5.59e-65	205.0	18	191	1	175	56.3	84.5	95.1
+geranylgeranyl_diphosphate_synthase	405948.SACE_5211	1.06e-97	301.0	15	360	17	368	48.7	96.1	95.7
+putative_methyl_transferase	1133849.O3I_015975	6.81e-115	340.0	1	287	1	287	56.4	100.0	94.1
+putative_glutamyl-tRNA_amidotransferase_subunit_A	208439.AJAP_23790	2.93e-185	537.0	13	533	19	537	56.2	97.6	96.5
+## 14 queries scanned
+## Total time (seconds): 0.030469655990600586
+## Rate: 459.47 q/s

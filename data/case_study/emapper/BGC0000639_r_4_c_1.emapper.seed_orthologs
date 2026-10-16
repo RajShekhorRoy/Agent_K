@@ -1,0 +1,14 @@
+## Thu Aug  6 13:35:38 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000639_r_4_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000639_r_4_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0000639_r_4_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0000639_r_4_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_48vbh_5u' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+geranylgeranyl_pyrophosphate_synthase	891974.E05_04230	2.88e-182	511.0	1	301	1	301	87.7	100.0	100.0
+zeaxanthin_glucosyl_transferase	891974.E05_04220	1.87e-261	721.0	1	425	1	425	87.1	100.0	100.0
+lycopene_cyclase	891974.E05_04210	6.49e-211	590.0	1	387	1	388	76.3	99.7	100.0
+phytoene_desaturase	1484158.PSNIH1_17415	0.0	911.0	1	492	1	492	90.4	99.8	99.8
+phytoene_synthase	891974.E05_04190	4.39e-197	549.0	1	309	1	309	87.4	100.0	100.0
+## 5 queries scanned
+## Total time (seconds): 0.03253936767578125
+## Rate: 153.66 q/s

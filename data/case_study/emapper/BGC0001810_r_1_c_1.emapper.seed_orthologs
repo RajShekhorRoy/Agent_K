@@ -1,0 +1,14 @@
+## Thu Aug  6 12:45:42 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001810_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001810_r_1_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0001810_r_1_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0001810_r_1_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_76pmf4zt' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+serine/threonine_protein_kinase	1150864.MILUP08_43209	8.24e-131	381.0	1	302	1	303	65.2	96.5	98.1
+alpha-amylase	369723.Strop_2001	0.0	904.0	8	594	9	589	75.3	98.8	98.6
+enoyl-CoA_hydratase	675635.Psed_5279	4.79e-56	188.0	46	285	18	258	44.0	83.0	92.3
+3-oxoacyl-[acyl-carrier-protein]_synthase	208444.JNYY01000001_gene4803	7.21e-136	396.0	6	329	5	327	64.8	95.0	96.1
+short-chain_dehydrogenase/reductase	1206731.BAGB01000172_gene359	1.11e-47	166.0	17	263	8	249	41.3	93.6	96.8
+## 5 queries scanned
+## Total time (seconds): 0.03559732437133789
+## Rate: 140.46 q/s

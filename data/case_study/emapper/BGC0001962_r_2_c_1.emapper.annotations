@@ -1,0 +1,11 @@
+## Thu Aug  6 12:58:04 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001962_r_2_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001962_r_2_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+flavin-dependent_oxidoreductase	180281.CPCC7001_2431	2.97e-97	300.0	COG0644@1|root,COG0644@2|Bacteria,1GKHV@1117|Cyanobacteria,22TBB@167375|Cyanobium	2|Bacteria	C	Tryptophan halogenase	fixC	-	1.3.99.38	ko:K21401	-	-	-	-	ko00000,ko01000	-	-	-	DAO,FAD_binding_3,Trp_halogenase
+type_III_polyketide_synthase	180281.CPCC7001_1720	5.32e-157	452.0	COG3424@1|root,COG3424@2|Bacteria,1G098@1117|Cyanobacteria,22TGN@167375|Cyanobium	2|Bacteria	Q	Chalcone and stilbene synthases, C-terminal domain	bcsA	-	-	ko:K16167,ko:K16233	-	-	-	-	ko00000,ko01008	-	-	-	Chal_sti_synt_C,Chal_sti_synt_N
+beta-lactamase	180281.CPCC7001_1661	6.76e-221	627.0	COG1680@1|root,COG1680@2|Bacteria,1G5M7@1117|Cyanobacteria,22TMN@167375|Cyanobium	2|Bacteria	V	Domain of unknown function (DUF3471)	-	-	-	-	-	-	-	-	-	-	-	-	Beta-lactamase,DUF3471
+## 3 queries scanned
+## Total time (seconds): 1.9133780002593994
+## Rate: 1.57 q/s

@@ -1,0 +1,6 @@
+Reaction_ID,Definition
+R04787,all-trans-Phytofluene + Acceptor <=> all-trans-zeta-Carotene + Reduced acceptor
+R04798,all-trans-zeta-Carotene + Reduced acceptor + Oxygen <=> all-trans-Neurosporene + 2 H2O + Acceptor
+R04800,all-trans-Neurosporene + Reduced acceptor + Oxygen <=> Lycopene + Acceptor + 2 H2O
+R09691,15-cis-Phytoene + 3 Acceptor <=> all-trans-Neurosporene + 3 Reduced acceptor
+R09692,15-cis-Phytoene + Acceptor <=> all-trans-Phytofluene + Reduced acceptor

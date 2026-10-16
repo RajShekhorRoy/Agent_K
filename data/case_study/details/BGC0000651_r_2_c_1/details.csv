@@ -1,0 +1,15 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+putative_o-succinylbenzoate_synthase,00130,R04031,"(1R,6R)-6-Hydroxy-2-succinylcyclohexa-2,4-diene-1-carboxylate"
+putative_1-deoxy-D-xylulose-5-phosphate_synthase,"00900, 00730",R05636,"1-Deoxy-D-xylulose 5-phosphate, CO2"
+putative_glycosyl_transferase,,,
+"putative_2,3-dihydro-2,3-dihydroxy_benzoate_dehydrogenase",01053,R01505,"2,3-Dihydroxybenzoate, NADH, H+"
+putative_isochorismate_synthase,"00130, 01053",R01717,Isochorismate
+putative_P450,,,
+octaprenyl_diphosphate_synthase,00900,R09248,"all-trans-Octaprenyl diphosphate, Diphosphate"
+putative_FAD-dependent_monooxygenase,,,
+putative_tetraterpene_cyclase,00909,"R07322, R07323","Diploptene, Diplopterol"
+putative_P450,,,
+lmbU_and_cloE-like_protein,,,
+geranylgeranyl_diphosphate_synthase,00900,"R01658, R02003, R02061","Diphosphate, Geranyl diphosphate, Diphosphate, trans,trans-Farnesyl diphosphate, Diphosphate, Geranylgeranyl diphosphate"
+putative_methyl_transferase,,,
+putative_glutamyl-tRNA_amidotransferase_subunit_A,"00360, 00627, 00643, 00380, 00330","R02540, R03096, R03180, R03909, R05551, R05590","Phenylacetic acid, Ammonia, Indole-3-acetate, Ammonia, 4-Guanidinobutanoate, Ammonia, Carboxylate, Ammonia, Acrylamide, H2O, Benzoate, Ammonia"

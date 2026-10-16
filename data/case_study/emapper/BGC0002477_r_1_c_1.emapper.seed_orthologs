@@ -1,0 +1,22 @@
+## Thu Aug  6 12:46:45 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0002477_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0002477_r_1_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0002477_r_1_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0002477_r_1_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_rk2wg525' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+thioesterase	1440053.JOEI01000001_gene1484	2.02e-196	547.0	1	306	1	306	91.8	100.0	100.0
+methylmalonyl-CoA_carboxyltransferase	1440053.JOEI01000001_gene1491	0.0	970.0	1	509	23	531	97.4	99.8	95.7
+dehydrogenase	1440053.JOEI01000001_gene1492	8.95e-174	485.0	1	254	1	254	98.4	100.0	100.0
+monooxygenase	1440053.JOEI01000001_gene1493	0.0	1234.0	1	656	1	656	95.9	100.0	100.0
+cyclase	1440053.JOEI01000001_gene1494	2.26e-218	603.0	1	314	3	316	94.9	100.0	99.4
+ketoacyl_reductase	1440053.JOEI01000001_gene1495	6.98e-170	476.0	1	261	1	261	94.3	100.0	100.0
+actinorhodin_polyketide_synthase	1440053.JOEI01000001_gene1496	4.64e-53	167.0	1	89	1	89	97.8	100.0	100.0
+beta-ketoacyl_synthase	1440053.JOEI01000001_gene1497	7.15e-277	759.0	1	406	1	406	95.1	100.0	100.0
+beta-ACP_synthase	1440053.JOEI01000001_gene1498	2.13e-295	807.0	1	426	1	426	96.9	100.0	100.0
+polyketide_synthase	1440053.JOEI01000001_gene1499	1.55e-67	204.0	10	108	1	99	96.0	91.7	100.0
+monooxygenase	1440053.JOEI01000001_gene1500	0.0	936.0	16	500	1	485	97.1	97.0	100.0
+methyltransferase	1440053.JOEI01000001_gene1501	1.51e-229	633.0	1	327	20	346	94.5	100.0	94.5
+short-chain_dehydrogenase	1440053.JOEI01000001_gene1504	2.57e-159	447.0	1	235	1	235	95.7	100.0	100.0
+## 13 queries scanned
+## Total time (seconds): 0.03247642517089844
+## Rate: 400.29 q/s

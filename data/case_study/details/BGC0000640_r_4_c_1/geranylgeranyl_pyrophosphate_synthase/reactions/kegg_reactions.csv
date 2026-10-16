@@ -1,0 +1,4 @@
+Reaction_ID,Definition
+R01658,Dimethylallyl diphosphate + Isopentenyl diphosphate <=> Diphosphate + Geranyl diphosphate
+R02003,"Geranyl diphosphate + Isopentenyl diphosphate <=> Diphosphate + trans,trans-Farnesyl diphosphate"
+R02061,"trans,trans-Farnesyl diphosphate + Isopentenyl diphosphate <=> Diphosphate + Geranylgeranyl diphosphate"

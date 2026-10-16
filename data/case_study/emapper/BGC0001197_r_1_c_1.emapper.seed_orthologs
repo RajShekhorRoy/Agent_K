@@ -1,0 +1,14 @@
+## Thu Aug  6 12:33:42 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001197_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001197_r_1_c_1 --tax_scope prokaryota_broad
+##
+##/usr/bin/diamond blastp -d '/home/rajroy/Downloads/tools/eggnog-mapper/data/eggnog_proteins.dmnd' -q '/DATA/DOWNLOADS/output_080626/bio_syn_fasta/BGC0001197_r_1_c_1.fasta' --threads 21 -o '/DATA/DOWNLOADS/output_080626/emapper/BGC0001197_r_1_c_1.emapper.hits' --tmpdir '/home/rajroy/PycharmProjects/metabolites/emappertmp_dmdn_qfu8eji8' --ultra-sensitive --iterate -e 0.001 --top 3  --outfmt 6 qseqid sseqid pident length mismatch gapopen qstart qend sstart send evalue bitscore qcovhsp scovhsp
+#qseqid	sseqid	evalue	bitscore	qstart	qend	sstart	send	pident	qcov	scov
+Polyketide_synthesis_cyclase	298653.Franean1_2389	7.81e-89	260.0	1	125	1	125	100.0	100.0	100.0
+putative_actinorhodin_polyketide_synthase_acyl_carrier_protein_(ACP)_(ActI_ORF3)	298653.Franean1_2390	2.09e-54	170.0	1	85	1	85	100.0	100.0	100.0
+cyclase/dehydrase	298653.Franean1_2391	1.8e-115	330.0	1	164	1	164	100.0	100.0	100.0
+Beta-ketoacyl_synthase	298653.Franean1_2393	0.0	887.0	1	450	1	450	100.0	100.0	100.0
+short-chain_dehydrogenase/reductase_SDR	298653.Franean1_2395	2.19e-165	463.0	1	245	1	245	100.0	100.0	100.0
+## 5 queries scanned
+## Total time (seconds): 0.02111363410949707
+## Rate: 236.81 q/s

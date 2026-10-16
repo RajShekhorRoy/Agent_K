@@ -1,0 +1,8 @@
+query,KEGG_Pathway,KEGG_Reaction,product_name
+thioredoxin-disulfide_reductase,"05418, 04621, 00450","R02016, R03596, R09372","Thioredoxin disulfide, NADPH, H+, Selenite, NADPH, H+, NADP+, H2O, Methaneselenol"
+SDR_family_NAD(P)-dependent_oxidoreductase,,,
+NAD(P)-binding_domain-containing_protein,,,
+type_I_polyketide_synthase,00333,R11664,"4-Keto-2-undecylpyrroline, H2O, CO2, CoA"
+ketoacyl-ACP_synthase_III_family_protein,,R10707,"Acetoacetyl-[acp], CoA, CO2"
+phosphonopyruvate_decarboxylase,00440,R04053,"Phosphonoacetaldehyde, CO2"
+molybdopterin-dependent_oxidoreductase,,,

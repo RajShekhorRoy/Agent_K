@@ -1,0 +1,3 @@
+"run antismash for this file /Users/rajroy/consensus_cov.gbk"
+"run pathway analysis for BGC0000343.5"
+"details of the pathway with id 01053"

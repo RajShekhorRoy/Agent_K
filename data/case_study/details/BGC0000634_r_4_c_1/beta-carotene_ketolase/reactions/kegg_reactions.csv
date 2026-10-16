@@ -1,0 +1,11 @@
+Reaction_ID,Definition
+R05345,beta-Carotene + 2 Reduced acceptor + 2 Oxygen <=> Echinenone + 2 Acceptor + 3 H2O
+R07549,Myxol <=> 4-Ketomyxol
+R07557,"(3R,2'S)-Myxol 2'-alpha-L-fucoside + 2 Reduced acceptor + 2 Oxygen <=> (3S,2'S)-4-Ketomyxol 2'-alpha-L-fucoside + 2 Acceptor + 3 H2O"
+R07563,Echinenone + 2 Reduced acceptor + 2 Oxygen <=> Canthaxanthin + 2 Acceptor + 3 H2O
+R07564,beta-Cryptoxanthin + 2 Reduced acceptor + 2 Oxygen <=> 3'-Hydroxyechinenone + 2 Acceptor + 3 H2O
+R07565,beta-Cryptoxanthin + 2 Reduced acceptor + 2 Oxygen <=> 3-Hydroxyechinenone + 2 Acceptor + 3 H2O
+R07566,3'-Hydroxyechinenone + 2 Reduced acceptor + 2 Oxygen <=> Phoenicoxanthin + 2 Acceptor + 3 H2O
+R07567,3-Hydroxyechinenone + 2 Reduced acceptor + 2 Oxygen <=> Phoenicoxanthin + 2 Acceptor + 3 H2O
+R07571,Zeaxanthin + 2 Reduced acceptor + 2 Oxygen <=> Adonixanthin + 2 Acceptor + 3 H2O
+R07573,Adonixanthin + 2 Reduced acceptor + 2 Oxygen <=> Astaxanthin + 2 Acceptor + 3 H2O

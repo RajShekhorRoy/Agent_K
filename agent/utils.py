@@ -2,8 +2,9 @@ import ast
 import json
 import os
 import re
-import tomllib
-import pandas as pd
+import tomli as tomllib
+
+# import pandas as pd
 from bs4 import BeautifulSoup
 
 
@@ -311,5 +312,5 @@ def get_antismash_exec():
 
 def get_emapper():
     cfg= get_toml()
-    emapper_exec =  cfg["tools"]["emapper_mac"]
+    emapper_exec =  cfg["tools"]["emapper"]
     return emapper_exec

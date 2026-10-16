@@ -1,0 +1,12 @@
+## Thu Aug  6 12:56:19 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0000384_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0000384_r_1_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+LtxA	1463936.JOJI01000007_gene3957	0.0	1632.0	COG1020@1|root,COG1020@2|Bacteria,2GISR@201174|Actinobacteria	201174|Actinobacteria	Q	Non-ribosomal peptide synthetase modules and related proteins	-	-	-	-	-	-	-	-	-	-	-	-	AMP-binding,AMP-binding_C,Condensation,Methyltransf_11,PP-binding,Thioesterase
+LtxB	1246995.AFR_28005	2.43e-112	343.0	COG2124@1|root,COG2124@2|Bacteria,2GJ8V@201174|Actinobacteria,4DBHX@85008|Micromonosporales	201174|Actinobacteria	C	Cytochrome P450	-	-	-	ko:K16380	ko01052,map01052	-	-	-	ko00000,ko00001	-	-	-	p450
+LtxC	1179773.BN6_30180	2.4e-33	135.0	COG5424@1|root,COG5424@2|Bacteria,2IAMF@201174|Actinobacteria,4DZ2S@85010|Pseudonocardiales	201174|Actinobacteria	H	Tryptophan dimethylallyltransferase	-	-	-	-	-	-	-	-	-	-	-	-	Trp_DMAT
+LtxD	1894.JOER01000040_gene1414	2.01e-80	248.0	COG1028@1|root,COG1028@2|Bacteria,2GJU1@201174|Actinobacteria	201174|Actinobacteria	IQ	Short-chain dehydrogenase reductase sdr	-	-	1.1.1.100	ko:K00059	ko00061,ko00333,ko00780,ko01040,ko01100,ko01130,ko01212,map00061,map00333,map00780,map01040,map01100,map01130,map01212	M00083,M00572	R04533,R04534,R04536,R04543,R04566,R04953,R04964,R07759,R07763,R10116,R10120,R11671	RC00029,RC00117	ko00000,ko00001,ko00002,ko01000,ko01004	-	-	-	adh_short_C2
+## 4 queries scanned
+## Total time (seconds): 2.428431510925293
+## Rate: 1.65 q/s

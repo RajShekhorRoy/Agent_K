@@ -1,0 +1,13 @@
+## Thu Aug  6 12:45:42 2026
+## emapper-2.1.13
+## /home/rajroy/Downloads/tools/eggnog-mapper/emapper.py -m diamond --cpu 16 -i /DATA/DOWNLOADS/output_080626/bio_syn_fasta//BGC0001810_r_1_c_1.fasta --output_dir /DATA/DOWNLOADS/output_080626/emapper/ --sensmode ultra-sensitive --override --cpu 21 -o BGC0001810_r_1_c_1 --tax_scope prokaryota_broad
+##
+#query	seed_ortholog	evalue	score	eggNOG_OGs	max_annot_lvl	COG_category	Description	Preferred_name	GOs	EC	KEGG_ko	KEGG_Pathway	KEGG_Module	KEGG_Reaction	KEGG_rclass	BRITE	KEGG_TC	CAZy	BiGG_Reaction	PFAMs
+serine/threonine_protein_kinase	1150864.MILUP08_43209	8.24e-131	381.0	COG0515@1|root,COG0515@2|Bacteria,2IBVC@201174|Actinobacteria,4DBJ6@85008|Micromonosporales	201174|Actinobacteria	KLT	serine threonine protein kinase	-	-	2.7.11.1	ko:K12132	-	-	-	-	ko00000,ko01000,ko01001	-	-	-	Pkinase
+alpha-amylase	369723.Strop_2001	0.0	904.0	COG0366@1|root,COG0366@2|Bacteria,2GKK1@201174|Actinobacteria,4D8MD@85008|Micromonosporales	201174|Actinobacteria	G	Alpha-amylase	-	-	3.2.1.1	ko:K01176	ko00500,ko01100,ko04973,map00500,map01100,map04973	-	R02108,R02112,R11262	-	ko00000,ko00001,ko01000	-	GH13	-	Alpha-amylase,Alpha-amylase_C,CBM_20,CBM_25
+enoyl-CoA_hydratase	675635.Psed_5279	4.79e-56	188.0	COG1024@1|root,COG1024@2|Bacteria,2IPRW@201174|Actinobacteria,4E5QB@85010|Pseudonocardiales	201174|Actinobacteria	I	Enoyl-CoA hydratase/isomerase	-	-	-	-	-	-	-	-	-	-	-	-	ECH_1
+3-oxoacyl-[acyl-carrier-protein]_synthase	208444.JNYY01000001_gene4803	7.21e-136	396.0	COG0332@1|root,COG0332@2|Bacteria,2GJP8@201174|Actinobacteria,4E9N4@85010|Pseudonocardiales	201174|Actinobacteria	I	3-Oxoacyl-[acyl-carrier-protein (ACP)] synthase III	-	-	2.3.1.194	ko:K21378	-	-	-	-	ko00000,ko01000	-	-	-	ACP_syn_III,ACP_syn_III_C
+short-chain_dehydrogenase/reductase	1206731.BAGB01000172_gene359	1.11e-47	166.0	COG1028@1|root,COG1028@2|Bacteria,2GJU1@201174|Actinobacteria	201174|Actinobacteria	IQ	Short-chain dehydrogenase reductase sdr	-	-	1.1.1.69	ko:K00046	-	-	-	-	ko00000,ko01000	-	-	-	adh_short,adh_short_C2
+## 5 queries scanned
+## Total time (seconds): 1.430079698562622
+## Rate: 3.50 q/s
